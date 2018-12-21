@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -6,10 +7,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>SafeMeeting HomeDocente</title>
+    <title>HomeDocente</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="Bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -54,7 +53,8 @@
 	            	<ul class="nav" id="side-menu">
 	                	<li>
 	                	<img id="foto-docente" src="Images/Abate.jpg">
-	                	<p>Benvenuto </p>
+	                	<p>Benvenuto </p> 
+	                	<br>
 	                	</li>
 	               		<li>
 	                    	<a href="#">I tuoi corsi</a> 
@@ -68,10 +68,12 @@
 	                    <li>	
 	                       	<a href="#">Orario di ricevimento</a>
 	                    </li>  
-	            	</ul>
-	            		<ul> 	
+	            	</ul>	            	
+	            	<br>
+	            		<ul class="nav" id="side-menu"> 	
 		                    <li>
 		                      	<a href="#">Account</a>
+		                      	<a href="#">Logout</a>
 							</li>
 						</ul>
 	            </div>			           
@@ -96,7 +98,7 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="Boostrap/vendor/jquery/jquery.min.js"></script>
+    <script src="Bootstrap/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="Bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
