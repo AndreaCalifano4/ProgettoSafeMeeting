@@ -1,3 +1,56 @@
+@charset "ISO-8859-1";
+
+.navbar-static-top{
+	margin:50px 0px 0px 0px;
+}
+
+.sidebar-nav.navbar-collapse{
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+#logo{
+	position: relative;
+	width: 70px;
+	height: auto;
+	margin: 1% 1% 1% 1%;
+	bottom: 50px;
+}
+
+.col-lg-12{
+	max-height: 150px;
+}
+
+/* titolo SafeMeeting */
+#sm{
+	position: relative;
+	left: 100px;
+	bottom: 130px;
+}
+ }
+.sidebar{
+	left: 0px;
+}
+
+#foto-docente{
+	width: 100px;
+	margin:0px 0px 10px 10px;
+	text-align: center;
+}
+
+#enpmlp{
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+#logoReg{
+	width: 100px;
+}
+.panel-heading{
+	text-align: center;
+	margin: 0 auto;
+}
+
 #studio{
 	display: none;
 }
@@ -26,7 +79,9 @@
 	}	
 	#mese{
 		width: 100px;
-	
+	/*	position: relative;
+		left: 150px;
+		bottom: 20px;*/
 	}
 #anno{
 	align: left;
