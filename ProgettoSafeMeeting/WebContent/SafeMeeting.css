@@ -1,67 +1,3 @@
-@charset "ISO-8859-1";
-/* header */
-
-.navbar-static-top{
-	margin:50px 0px 0px 0px;
-}
-
-.sidebar-nav.navbar-collapse{
-	padding-right: 0px;
-	padding-left: 0px;
-}
-
-.nav navbar-top-links.navbar-right{
-	
-}
-
-/* logo */
-#logo{
-	position: relative;
-	width: 70px;
-	height: auto;
-	margin: 1% 1% 1% 1%;
-	bottom: 50px;
-}
-
-.col-lg-12{
-	max-height: 150px;
-}
-
-/* titolo SafeMeeting */
-
-
-	#sm{
-		position: relative;
-		left: 100px;
-		bottom: 130px;
-	}
-
- }
-.sidebar{
-	left: 0px;
-}
-
-#foto-docente{
-	width: 100px;
-	margin:0px 0px 10px 10px;
-	text-align: center;
-	/*position: relative;
-	bottom: 25px;	*/
-}
-
-#enpmlp{
-	margin-top: 20px;
-	margin-left: 10px;
-}
-
-#logoReg{
-	width: 100px;
-}
-.panel-heading{
-	text-align: center;
-	margin: 0 auto;
-}
-
 #studio{
 	display: none;
 }
@@ -69,7 +5,7 @@
 #sfondo{
 	background-size: cover;
 	height: 100%;
-	background-image:url("unisa.jpg");
+	background-image:url("Images/unisa.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -79,7 +15,23 @@
 	margin-right: 100%;
 	}
 }	
+#errore{
+	color: red;
+}
 
+/* @media(max-width: 768px) {*/
+
+	#giorno{
+		width: 100px; 				
+	}	
+	#mese{
+		width: 100px;
+	
+	}
+#anno{
+	align: left;
+	width: 100px;
+}
 
 /*CSS studente*/
 #foto-studente{
