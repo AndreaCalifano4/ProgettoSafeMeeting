@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class DocenteDAO {
 	
 	/**
-	 * 
-	 * @param db
-	 * @return
+	 * Questo metodo mi permettere di inserire un nuovo docente all'interno del db relazionale;
+	 * @param db (DocenteBean)
+	 * @return true (nel try, nel caso in cui l'ha inserito con successo) oppure false(nel catch, nel caso in cui l'inserimento non è avvenuto con successo).
 	 */
 	
 	public synchronized boolean registraAccount(DocenteBean db)
