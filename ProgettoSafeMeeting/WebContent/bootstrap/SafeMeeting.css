@@ -58,7 +58,7 @@
 #sfondo{
 	background-size: cover;
 	height: 100%;
-	background-image:url("Images/unisa.jpg");
+	background-image:url("images/unisa.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -93,4 +93,14 @@
 	width: 100px;
 	margin:0px 0px 10px 10px;
 	text-align: center;
+}
+/*LOGIN*/
+#btnRegistrazione{
+	background-color: #337ab7;
+	border-color: #337ab7;	
+}
+
+#btnRegistrazione:hover{
+	background-color: #255883;
+	border-color: #255883;
 }

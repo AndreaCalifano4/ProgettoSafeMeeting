@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" import="safemeeting.model.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -11,22 +11,22 @@
     <title>HomeDocente</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="Bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="Bootstrap/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="bootstrap/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="Bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="Bootstrap/vendor/morrisjs/morris.css" rel="stylesheet">
+    <link href="bootstrap/vendor/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="Bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
     <!-- SafeMeeting CSS -->
-    <link href="SafeMeeting.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap/SafeMeeting.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -42,7 +42,7 @@
 			    	<span class="icon-bar"></span>
     			</button>
 	    	<div class="navbar-brand">
-	 		   	<a href="index.html"><img id = "logo" src="Images/logo.png""></a>	
+	 		   	<a href="index.html"><img id = "logo" src="bootstrap/images/logo.png""></a>	
 	 		   	<h1 id="sm">SafeMeeting</h1> 		   		 		   	
 	    	</div>
        	</nav>	       
@@ -52,8 +52,9 @@
 	            <div class="navbar-default sidebar" role="navigation">
 	            	<ul class="nav" id="side-menu">
 	                	<li>
-	                	<img id="foto-docente" src="Images/Abate.jpg">
-	                	<p>Benvenuto </p> 
+	                	<img id="foto-docente" src="bootstrap/images/Abate.jpg">
+	                	<%DocenteBean db = (DocenteBean) request.getSession().getAttribute("docbean"); %>
+	                	<div align="center"><p style="font-size: 18px"> Benvenuto Professor/ssa <%=db.getCognome() %>! </p></div>
 	                	<br>
 	                	</li>
 	               		<li>
@@ -72,8 +73,20 @@
 	            	<br>
 	            		<ul class="nav" id="side-menu"> 	
 		                    <li>
-		                      	<a href="#">Account</a>
-		                      	<a href="#">Logout</a>
+		                      	<a href="#">
+		                      		<form method="POST" action="" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent;">
+		                      				Account
+		                      			</button>
+		                      		</form>
+		                      	</a>
+		                      	<a href="#">
+		                      		<form method="POST" action="ServletLogout" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent;" onClick="alert('Logout effettuato con successo!')">
+		                      				Logout
+		                      			</button>
+		                      		</form>
+		                      	</a>
 							</li>
 						</ul>
 	            </div>			           
@@ -98,24 +111,24 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="Bootstrap/vendor/jquery/jquery.min.js"></script>
+    <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="Bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="Bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="Bootstrap/vendor/raphael/raphael.min.js"></script>
-    <script src="Bootstrap/vendor/morrisjs/morris.min.js"></script>
-    <script src="Bootstrap/data/morris-data.js"></script>
+    <script src="bootstrap/vendor/raphael/raphael.min.js"></script>
+    <script src="bootstrap/vendor/morrisjs/morris.min.js"></script>
+    <script src="bootstrap/data/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="Bootstrap/dist/js/sb-admin-2.js"></script>
+    <script src="bootstrap/dist/js/sb-admin-2.js"></script>
     
     <!-- Script SafeMeeting -->
-    <script src="Script.js"></script>
+    <script src="bootstrap/Script.js"></script>
 
 </body>
 

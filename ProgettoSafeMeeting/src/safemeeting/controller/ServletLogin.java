@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import safemeeting.model.*;
+import safemeeting.model .*;
 /**
  * Servlet implementation class ServletLogin
  */
@@ -36,7 +36,7 @@ public class ServletLogin extends HttpServlet {
 			if(email.contains("@studenti.unisa.it")) { //LOGIN STUDENTE
 				StudenteDAO sd = new StudenteDAO();
 				StudenteBean sb = sd.getLogin(email,password);
-			
+				
 				if(sb != null) {
 					ssn.setAttribute("studbean",sb);
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomeStudente.jsp");
@@ -51,15 +51,16 @@ public class ServletLogin extends HttpServlet {
 			
 			if(email.contains("@unisa.it")) { //LOGIN DOCENTE
 				DocenteDAO dd = new DocenteDAO();
+				
 				DocenteBean db = dd.getLogin(email,password);
-			
+				
 				if(db != null) {
 					ssn.setAttribute("docbean",db);
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomeDocente.jsp");
 					requestDispatcher.forward(request, response);
 				}
 				else {
-					ssn.setAttribute("errorLogin", true);
+					request.setAttribute("errorLogin", true);
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher("Login.jsp");
 					requestDispatcher.forward(request, response);
 				}

@@ -21,21 +21,22 @@ function validate(){
 	var e = document.getElementById("email").value;
 	var p = document.getElementById("password").value;
 	var r = document.getElementById("ripPassword").value;
-	var s = document.getElementById("studio").value
+	var s = document.getElementById("studio").value;
 	
 	var nome = validationNome(n);
 	var cognome = validationCognome(c);
 	var matricola = validationMatricola(m);
 	var email = validationEmail(e);
 	var password = validationPassword(p);
-	var ripPassword = validationRipPassword(r)
+	var ripPassword = validationRipPassword(r);
 	var studio = validationStudio(s);
 	var v = validateEmail(e);
 	var match = matchPassword(p,r);
-	if(nome == false || cognome == false || matricola == false || email == false || password == false || studio == false || ripPassword == false || v == false || match == false){
+	
+	if(nome == false || cognome == false || matricola == false || email == false || password == false || ripPassword == false || v == false || match == false){
 		return false;
 	}
-	
+	else window.alert('Registrazione effettuata con successo!');
 }
 
 function validationNome(nome){
@@ -47,7 +48,7 @@ function validationNome(nome){
 		return false;
 	}
 	else if (!nome.match(letters)){
-		document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazionedei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
+		document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazion edei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
 		return false;
 	}
 	else{
@@ -64,8 +65,8 @@ function validationCognome(cognome){
 		document.getElementById("cognome").style.borderColor = "red";
 		return false;
 	}
-	else if (!cognome.match(letters)){
-		document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazionedei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
+	else if(!cognome.match(letters)){
+		document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazione dei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
 		return false;
 	}
 	else{
@@ -82,8 +83,8 @@ function validationMatricola(matricola){
 		return false;
 	}
 	else{
-		if (!matricola.match(letters)){
-			document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazionedei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
+		if(!matricola.match(letters)){
+			document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazione dei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
 			return false;
 		}
 	
@@ -102,7 +103,7 @@ function validationEmail(email){
 		return false;
 	}
 	else if (!email.match(letters)){
-		document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazionedei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
+		document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazione dei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
 		return false;
 	}
 	else{
@@ -120,7 +121,7 @@ function validationPassword(password){
 		return false;
 	}
 	else if (!password.match(letters)){
-		document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazionedei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
+		document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazione dei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
 		return false;
 	}
 	else{
@@ -138,7 +139,7 @@ function validationRipPassword(ripPassword){
 		return false;
 	}
 	else if (!ripPassword.match(letters)){
-		document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazionedei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
+		document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazione dei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
 		return false;
 	}
 	else{
@@ -157,7 +158,7 @@ function validationStudio(studio){
 		return false;
 	}
 	else if (!studio.match(letters)){
-		document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazionedei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
+		document.getElementById("errore").innerHTML = "Attenzione! Errore nella compilazione dei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
 		return false;
 	}
 	else{
@@ -171,8 +172,8 @@ function matchPassword(p,r){
 		return true;
 	}
 	else if(p != r){
-		document.getElementById("errore").innerHTML = " Attenzione! Errore nella compilazionedei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
-		return false
+		document.getElementById("errore").innerHTML = " Attenzione! Errore nella compilazione dei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
+		return false;
 	}
 }
 
@@ -184,22 +185,23 @@ function validateEmail(email) {
 		  if(email.includes("@studenti.unisa.it"))
 			  return true;
 		  else{
-			  document.getElementById("errore").innerHTML = " Attenzione! Errore nella compilazionedei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
+			  document.getElementById("errore").innerHTML = " Attenzione! Errore nella compilazione dei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
 			  return false;
 		  }
 	}
-		  if(radio[1].checked){
-			  if(email.includes("@unisa.it"))
-			  return true;
-		  else { 
-			  document.getElementById("errore").innerHTML = " Attenzione! Errore nella compilazionedei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
-			  return false;
-		  }
-			  
-	   }
-		  
-		if(!radio[0].checked && !radio[1].checked){
-			document.getElementById("errore").innerHTML = " Attenzione indicare se sei uno studente o un docente.";
+	
+	if(radio[1].checked){
+		if(email.includes("@unisa.it"))
+			return true;
+		else { 
+			document.getElementById("errore").innerHTML = " Attenzione! Errore nella compilazione dei campi. Controlla che i campi siano corretti e che le due password siano uguali.";
 			return false;
-		}   	
+		}
+			  
+	}
+		  
+	if(!radio[0].checked && !radio[1].checked){
+		document.getElementById("errore").innerHTML = " Attenzione indicare se sei uno studente o un docente.";
+		return false;
+	}   	
 }
