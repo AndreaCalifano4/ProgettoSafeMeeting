@@ -1,0 +1,26 @@
+.glyphicon-trash {
+   		color: red;
+}
+
+#ban {
+	    
+	    color: red;
+}
+
+#unlock
+{
+    color: 	#90ee90;
+}
+
+#accept{
+		color: red;
+}
+		
+#accepted{
+		color: green;
+}
+
+#error_email_login, #error_password_login {
+	color: red;
+	font-size: medium;
+}
