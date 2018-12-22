@@ -45,7 +45,7 @@
 			    	<span class="icon-bar"></span>
     			</button>
 	    	<div class="navbar-brand">
-	 		   	<a href="index.html"><img id = "logo" src="bootstrap/images/logo.png""></a>	
+	 		   	<a href="index.html"><img id = "logo" src="bootstrap/images/logo.png"></a>	
 	 		   	<h1 id="sm">SafeMeeting</h1> 		   		 		   	
 	    	</div>
        	</nav>	       
