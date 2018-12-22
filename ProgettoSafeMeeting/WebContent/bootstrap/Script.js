@@ -205,3 +205,62 @@ function validateEmail(email) {
 		return false;
 	}   	
 }
+
+
+function getAnno(){
+	var data = new Date();
+	var a = data.getYear();
+	var anno = a + 1900; 
+	for(var i=0; i<2; i++){
+		increment = anno + i;
+		document.getElementById("anno").innerHTML = '<option> Anno </option>' + '<option>'+ anno + '</option>' + '<option>'+ increment + '</option>';
+	}
+		
+}
+
+function validateData(){
+	var opzioneGiorno = document.getElementById("giorno").value;
+	var opzioneMese = document.getElementById("mese").value;
+	var opzioneAnno = document.getElementById("anno").value;
+	
+	var g = validationGiorno(opzioneGiorno);
+	var m = validationMese(opzioneMese);
+	var a = validationAnno(opzioneAnno);
+	
+	if(g == false || m == false || a == false){
+		return false;
+	}
+}
+
+function validationGiorno(opzioneGiorno){
+	if(opzioneGiorno == ''){
+		alert("madonna");
+		return false;
+	}
+	else{
+		alert("ciccio")
+		return true;
+	}
+}
+
+function validationMese(opzioneMese){
+	if(opzioneMese == ''){
+		alert("madonna");
+		return false;
+	}
+	else{
+		alert("ciccio")
+		return true;
+	}
+}
+
+function validationMese(opzioneAnno){
+	if(opzioneAnno == ''){
+		alert("madonna");
+		return false;
+	}
+	else{
+		alert("ciccio")
+		return true;
+	}
+}

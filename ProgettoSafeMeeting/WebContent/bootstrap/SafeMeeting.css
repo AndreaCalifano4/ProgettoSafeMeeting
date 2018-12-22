@@ -58,7 +58,7 @@
 #sfondo{
 	background-size: cover;
 	height: 100%;
-	background-image:url("images/unisa.jpg");
+	background-image:url("Images/unisa.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -72,22 +72,43 @@
 	color: red;
 }
 
-/* @media(max-width: 768px) {*/
-
-	#giorno{
-		width: 100px; 				
+#giorno{
+	width: 100px; 				
 	}	
-	#mese{
-		width: 100px;
-	/*	position: relative;
-		left: 150px;
-		bottom: 20px;*/
+#mese{
+	width: 110px;
+	margin-left: 20px
 	}
 #anno{
-	align: left;
+	width: 100px;
+	margin-left: 20px
+}
+
+#ora-dalle{
 	width: 100px;
 }
 
+#ora-alle{
+	width: 100px;
+	margin-left: 20px
+}
+
+#alle{
+	width: 100px;
+}
+#dalle{
+	width: 100px;
+}
+
+#madonna{
+	margin-bottom: 83px;
+} 
+#input-seleziona-durata{
+	margin-left: 10px;
+}
+#spazio{
+	width: 500px;
+}
 /*CSS studente*/
 #foto-studente{
 	width: 100px;
