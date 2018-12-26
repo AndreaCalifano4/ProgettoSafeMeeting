@@ -131,3 +131,15 @@
 #table-pref{
     text-valign: center;
 }
+
+#foto-docente-dettagli-prenotazione{
+	width: 100px;
+	margin:0px 30px 10px 10px;
+	text-align: center;
+}
+
+#calendar-24{
+	width: 100px;
+	margin:0px 0px 10px 10px;
+	text-align: center;
+}
