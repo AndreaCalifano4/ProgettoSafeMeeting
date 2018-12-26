@@ -125,3 +125,9 @@
 	background-color: #255883;
 	border-color: #255883;
 }
+
+
+/*Css tabella dei risultati*/
+#table-pref{
+    text-valign: center;
+}
