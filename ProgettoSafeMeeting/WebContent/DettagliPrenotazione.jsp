@@ -150,7 +150,7 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="boostrap/vendor/jquery/jquery.min.js"></script>
+    <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -167,7 +167,7 @@
     <script src="bootstrap/dist/js/sb-admin-2.js"></script>
     
     <!-- Script SafeMeeting -->
-    <script src="Script.js"></script>
+    <script src="bootstrap/Script.js"></script>
 
 </body>
 
