@@ -135,12 +135,13 @@
 	top: 9px;
 }
 /*responsive ricevimento alternativo*/
-/*@media (max-height: 530px){
+
+@media screen and (max-height: 560px) and (max-width:1170px) {
 	.panel-body{
 		position: relative;
 		bottom: 150px;
 	}
-}*/
+}
 
 /*CSS studente*/
 #foto-studente{
