@@ -29,6 +29,10 @@
     <!-- Custom Fonts -->
     <link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
+    <!-- CSS Calendario -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  	<link rel="stylesheet" href="/resources/demos/style.css">
+
     <!-- SafeMeeting CSS -->
     <link href="bootstrap/SafeMeeting.css" rel="stylesheet" type="text/css">
 
@@ -141,7 +145,10 @@
 	       	<div>
 	       		<table class="table" id="table-pref">
   						<tr>
-  							<th><br> <!--  INSERIRE IL CALENDARIO QUI --></th>
+  							<th id="calendario"><br> 
+							 <input class="form-control" placeholder="Seleziona giorno" type="text" id="datepicker">
+
+							</th>
     						<th><br><select class="form-control" id="corso">
 								<option value="corso">Corso</option>
 								<option value="1">Corso1</option>
@@ -182,6 +189,16 @@
     <!-- Custom Theme JavaScript -->
     <script src="bootstrap/dist/js/sb-admin-2.js"></script>
     
+    <!-- Script Calendario  -->
+  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$( function() {
+		$( "#datepicker" ).datepicker();
+		} );
+		
+	</script>
+	
     <!-- Script SafeMeeting -->
     <script src="bootstrap/Script.js"></script>
 
