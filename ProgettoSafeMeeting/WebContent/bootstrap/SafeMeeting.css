@@ -137,7 +137,7 @@
 /*responsive ricevimento alternativo*/
 
 @media screen and (max-height: 560px) and (max-width:1170px) {
-	.panel-body{
+	#panel-body{
 		position: relative;
 		bottom: 150px;
 	}

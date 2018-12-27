@@ -89,7 +89,7 @@
         		<h1 class="page-header">Il tuo ricevimento</h1>
         	</div>
             <div class="container-fluid">
-		    	<div class="panel-body">
+		    	<div class="panel-body"id="panel-body">
 		    		<div id="pagina">
 			    		<div id="testo">
 							<p id="Ricevimento-alternativo">Attualmente non sono presenti orari di ricevimento</p>
