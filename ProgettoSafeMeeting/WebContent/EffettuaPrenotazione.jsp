@@ -117,16 +117,13 @@
 	        <div>
 	        	<p>	
 	        	Nome Cognome<br>
-	        	Corso<br>
-	        	Orario di ricevimento
+	        	Corso
 	        	</p>
 	       	</div>
 	       	<br><br>
 	       	<div>
-	       		<img id="calendar-24" src="bootstrap/images/calendar-24.png">
-	       	</div>
-	       	<div>
 	       	<p>
+	       	<h1 class="lead">Orario di ricevimento:</h1>
 	       		<table class="table" id="table-pref">
   						<tr>
   							<th>Lunedì</th>
@@ -142,7 +139,35 @@
 	       	</p>
 	       	</div>
 	       	<div>
-	       		<button class="btn btn-primary btn-lg" type="button">Prenotati</button>
+	       		<table class="table" id="table-pref">
+  						<tr>
+  							<th><br></th>
+    						<th><br><div class="dropdown">
+  								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+   								Scegli Corso
+    							<span class="caret"></span>
+  								</button>
+  								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    								<li><a href="#">Corso1</a></li>
+    								<li><a href="#">Corso2</a></li>
+  								</ul>
+							</div></th>
+							<th><br><div class="dropdown">
+  								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+   								Scegli Tipologia
+    							<span class="caret"></span>
+  								</button>
+  								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    								<li><a href="#">Tesi</a></li>
+    								<li><a href="#">Informazioni</a></li>
+    								<li><a href="#">Problematiche corso</a></li>
+    								<li><a href="#">Altro</a></li>
+  								</ul>
+							</div></th>
+    						<th><br></th> 
+  						</tr>
+  				</table>
+	       	
 	       	</div>
         </div>
         <!-- /#page-wrapper -->
