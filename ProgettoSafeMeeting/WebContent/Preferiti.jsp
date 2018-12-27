@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 
@@ -46,7 +44,7 @@
 			    	<span class="icon-bar"></span>
     			</button>
 	    	<div class="navbar-brand">
-	 		   	<a href="index.html"><img id = "logo" src="bootstrap/images/logo.png"></a>	
+	 		   	<a href="HomeStudente.jsp"><img id = "logo" src="bootstrap/images/logo.png"></a>	
 	 		   	<h1 id="sm">SafeMeeting</h1> 		   		 		   	
 	    	</div>
        	</nav>	       
@@ -93,73 +91,39 @@
             <!-- /.navbar-static-side -->
         
         <div id="page-wrapper">
+        <br>
+        	<div class="col-lg-12">
+        	</div>
             <div class="container-fluid">
-	            <div class="row">	            		 
-	            </div>
-	        <div class="form-group input-group">
-	        	<input class="form-control" type="text" />
-	        	<span class="input-group-btn">
-	        		<button class="btn btn-default" type="button">
-	        			<i class="fa fa-search"></i>
-	        		</button>
-	        	</span>
-	        </div>   
-	       	</div>
-            <!-- /.row -->
-            <div class="row"> 
-            
-            </div>
-            <hr>
-            <div>
-	        	<img id="foto-docente-dettagli-prenotazione" src="bootstrap/images/Abate.jpg" style="float:left"> <!-- è una cafonata ma non mi funziona nel css -->
-	        </div>
-	        &nbsp; &nbsp; &nbsp; &nbsp;
-	        <div>
-	        	<p>	
-	        	Nome Cognome<br>
-	        	Corso
-	        	</p>
-	       	</div>
-	       	<br><br>
-	       	<div>
-	       	<p>
-	       	<h1 class="lead">Orario di ricevimento:</h1>
-	       		<table class="table" id="table-pref">
+		    	
+		    	<div>
+	        	<div class="panel panel-default">
+  					<!-- Default panel contents -->
+					<div class="panel-heading">I tuoi preferiti:</div>
+
+  					<!-- Table -->
+  					<table class="table" id="table-pref">
   						<tr>
-  							<th>Lunedì</th>
-    						<th>12-13</th>
-    						<th>Studio 48 Stecca F</th> 
+  							<th>Foto</th>
+    						<th>Nome</th>
+    						<th>Cognome</th> 
+    						<th> </th>
   						</tr>
+  						<!-- METTERE I PROFESSORI QUI --> 
   						<tr>
-  							<th>Mercoledì</th>
-    						<th>15-16</th>
-    						<th>Studio 48 Stecca F</th> 
+  							<th><a href=""><img id="foto-docente" src="bootstrap/images/Abate.jpg"></a></th>
+    						<th>Scemo</th>    						
+    						<th>Scemo</th> 
+    						<th><button type="button" class="btn btn-default btn-lg">
+  								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  								</button>
+							</th>
   						</tr>
  					</table>
-	       	</p>
+					</div>
 	       	</div>
-	       	<div>
-	       		<table class="table" id="table-pref">
-  						<tr>
-  							<th><br> <!--  INSERIRE IL CALENDARIO QUI --></th>
-    						<th><br><select class="form-control" id="corso">
-								<option value="corso">Corso</option>
-								<option value="1">Corso1</option>
-								<option value="2">Corso2</option>
-							</select></th>
-							<th><br><select class="form-control" id="tipologia">
-								<option value="tipologia">Tipologia</option>
-								<option value="1">Tesi</option>
-								<option value="2">Informazioni</option>
-								<option value="3">Problematiche corso</option>
-								<option value="4">Altro</option>
-							</select></th>
-    						<th><br></th> 
-  						</tr>
-  				</table>
-  				<br><br>
-	       		<button class="btn btn-primary btn-lg" type="button">Completa</button>
-	       	</div>
+		    	
+	       	</div>      
         </div>
         <!-- /#page-wrapper -->
 
@@ -184,6 +148,7 @@
     
     <!-- Script SafeMeeting -->
     <script src="bootstrap/Script.js"></script>
+
 
 </body>
 
