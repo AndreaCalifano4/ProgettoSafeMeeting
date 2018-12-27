@@ -45,7 +45,7 @@
 			    	<span class="icon-bar"></span>
     			</button>
 	    	<div class="navbar-brand">
-	 		   	<a href="index.html"><img id = "logo" src="bootstrap/images/logo.png"></a>	
+	 		   	<a href="HomeStudente.jsp"><img id = "logo" src="bootstrap/images/logo.png"></a>	
 	 		   	<h1 id="sm">SafeMeeting</h1> 		   		 		   	
 	    	</div>
        	</nav>	       
@@ -97,12 +97,14 @@
 	            <div class="row">	            		 
 	            </div>
 	        <div class="form-group input-group">
-	        	<input class="form-control" type="text" />
+	        <form method="POST" action="ServletRicerca">
+	        	<input class="form-control" type="text" name="parametro" />
 	        	<span class="input-group-btn">
-	        		<button class="btn btn-default" type="button">
+	        		<button class="btn btn-default" type="submit">
 	        			<i class="fa fa-search"></i>
 	        		</button>
 	        	</span>
+	        </form>
 	        </div>   
 	       	</div>
             <!-- /.row -->

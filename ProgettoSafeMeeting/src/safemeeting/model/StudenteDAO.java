@@ -3,6 +3,7 @@ package safemeeting.model;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.sql.Connection;
 
 public class StudenteDAO {
@@ -96,6 +97,66 @@ public class StudenteDAO {
 			}
 		}
 		return null;
+	}
+	
+	public ArrayList<DocenteBean> ricercaDocente(String param,DocenteBean db){
+		Connection conn = null;
+		PreparedStatement ps = null;
+		PreparedStatement ps2 = null;
+		ArrayList<DocenteBean> listadoc = new ArrayList<DocenteBean>();
+		
+		try
+		{
+			conn = DriverManagerConnectionPool.getConnection();
+			ps = conn.prepareStatement("SELECT d.cognome,d.nome FROM docente d, corso c, insegna i WHERE d.matricolaDoc=i.insegnaMatricolaDoc AND i.insegnaCodiceCorso = c.Codice AND d.cognome LIKE ? LIMIT 1");
+			ps.setString(1, param+"%");
+			
+			ResultSet res = ps.executeQuery();
+			while(res.next()) {
+				db = new DocenteBean();
+				db.setNome(res.getString("d.nome"));
+				db.setCognome(res.getString("d.cognome"));
+				listadoc.add(db);
+			}
+			if(listadoc.isEmpty()) {
+				ps2 = conn.prepareStatement("SELECT d.cognome,d.nome FROM docente d, corso c, insegna i WHERE d.matricolaDoc=i.insegnaMatricolaDoc AND i.insegnaCodiceCorso = c.Codice AND c.nome LIKE ?");
+				ps2.setString(1, param+"%");
+				
+				ResultSet res2 = ps2.executeQuery();
+				while(res2.next()) {
+					db = new DocenteBean();
+					db.setNome(res2.getString("d.nome"));
+					db.setCognome(res2.getString("d.cognome"));
+					listadoc.add(db);
+				}
+				if(listadoc.isEmpty()) {
+					return null;
+				}
+				else { 
+					return listadoc;
+				}
+			}
+			else { 
+				return listadoc;
+			}
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+			return null;
+		}
+		finally
+		{
+			try 
+			{
+				DriverManagerConnectionPool.releaseConnection(conn);
+				ps.close();
+			} 
+			catch (SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
 	}
 }
 	

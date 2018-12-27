@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="safemeeting.model.*" import="java.util.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -46,7 +46,7 @@
 			    	<span class="icon-bar"></span>
     			</button>
 	    	<div class="navbar-brand">
-	 		   	<a href="index.html"><img id = "logo" src="bootstrap/images/logo.png"></a>	
+	 		   	<a href="HomeStudente.jsp"><img id = "logo" src="bootstrap/images/logo.png"></a>	
 	 		   	<h1 id="sm">SafeMeeting</h1> 		   		 		   	
 	    	</div>
        	</nav>	       
@@ -114,7 +114,7 @@
 	        	<!-- METTERE I PROFESSORI QUI --> 
 	        	<div class="panel panel-default">
   					<!-- Default panel contents -->
-					<div class="panel-heading">Risulatato ricerca</div>
+					<div class="panel-heading">Risultato ricerca</div>
 
   					<!-- Table -->
   					<table class="table" id="table-pref">
@@ -124,14 +124,25 @@
     						<th>Cognome</th> 
     						<th>Aggiungi ai preferiti</th>
   						</tr>
+  						<%
+  						ArrayList<DocenteBean> dbarr =(ArrayList<DocenteBean>) request.getAttribute("dbarr");
+  						int i = 0;
+  						while(i<dbarr.size()){
+  						%>
+  						
   						<tr>
-  							<th><img id="foto-docente" src="bootstrap/images/Abate.jpg"></th>
-    						<th>Ignazio</th>
-    						<th>Abate</th> 
+  							<th><a href=""><img id="foto-docente" src="bootstrap/images/Abate.jpg"></a></th>
+    						<th><%= dbarr.get(i).getNome() %></th>    						
+    						<th><%= dbarr.get(i).getCognome() %></th> 
     						<th><button type="button" class="btn btn-default btn-lg">
   								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  								</button>
 							</th>
   						</tr>
+  						<%
+  							i++;
+  						} 
+  						%>
  					</table>
 					</div>
 	       	</div>
