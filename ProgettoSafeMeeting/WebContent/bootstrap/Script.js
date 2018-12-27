@@ -207,6 +207,8 @@ function validateEmail(email) {
 }
 
 
+//validazione Registrazione
+
 function getAnno(){
 	var data = new Date();
 	var a = data.getYear();
@@ -215,52 +217,147 @@ function getAnno(){
 		increment = anno + i;
 		document.getElementById("anno").innerHTML = '<option> Anno </option>' + '<option>'+ anno + '</option>' + '<option>'+ increment + '</option>';
 	}
-		
 }
+/*
+function isLeap(opzioneAnno){
+
+	var result = false;
+	if ( ( year % 4 ) == 0 ) {
+		if ( ( year % 100 ) != 0 ) {
+			result = true;
+		}
+		else if ( ( year % 400 ) == 0 ) {
+			result = true;
+			}
+		}
+		return result;
+	}
+*/	
+	
+
 
 function validateData(){
 	var opzioneGiorno = document.getElementById("giorno").value;
 	var opzioneMese = document.getElementById("mese").value;
 	var opzioneAnno = document.getElementById("anno").value;
+
 	
-	var g = validationGiorno(opzioneGiorno);
-	var m = validationMese(opzioneMese);
-	var a = validationAnno(opzioneAnno);
 	
-	if(g == false || m == false || a == false){
+	var sceltaGiorno = validationGiorno(opzioneGiorno);
+	var sceltaMese = validationMese(opzioneMese);
+	var sceltaAnno = validationAnno(opzioneAnno);
+	var r = controllaGiorno(opzioneGiorno, opzioneMese);
+//	var b = isLeap(opzioneAnno);
+	
+	document.getElementById("err").innerHTML = opzioneGiorno;
+	document.getElementById("err1").innerHTML = opzioneMese;
+	document.getElementById("err2").innerHTML = opzioneAnno;
+
+	if(sceltaGiorno == false || sceltaMese == false || sceltaAnno == false || r == false /*|| b == false*/ ){
 		return false;
 	}
 }
 
+
 function validationGiorno(opzioneGiorno){
-	if(opzioneGiorno == ''){
-		alert("madonna");
+	if(opzioneGiorno == 'giorno'){	
+		document.getElementById("giorno").style.borderColor = "red";
+		alert("errore da giorno ");
 		return false;
 	}
 	else{
-		alert("ciccio")
+		alert("ok da giorno");
+		document.getElementById("giorno").style.borderColor = "#ccc";
 		return true;
 	}
 }
 
 function validationMese(opzioneMese){
-	if(opzioneMese == ''){
-		alert("madonna");
+	if(opzioneMese == 'mese'){
+		document.getElementById("mese").style.borderColor = "red";
+		alert("errore da mese");
 		return false;
 	}
 	else{
-		alert("ciccio")
+		alert("ok da mese");
+		document.getElementById("mese").style.borderColor = "#ccc";
 		return true;
 	}
 }
 
-function validationMese(opzioneAnno){
-	if(opzioneAnno == ''){
-		alert("madonna");
+function validationAnno(opzioneAnno){
+	if(opzioneAnno == 'Anno'){
+		document.getElementById("anno").style.borderColor = "red";
+		alert("errore da anno");
 		return false;
 	}
 	else{
-		alert("ciccio")
+		document.getElementById("anno").style.borderColor = "#ccc";
+		alert("ok da anno");
 		return true;
+	}
+}
+
+
+function controllaGiorno(opzioneGiorno, opzioneMese){
+		
+	if(opzioneMese == 4 || opzioneMese == 6 || opzioneMese == 9 || opzioneMese == 11){
+		if(opzioneGiorno == 31)
+			alert (" errore il mese e' di 30 giorni");
+			return false;
+	}
+	else if(opzioneMese == 2 ){
+		if(opzioneGiorno == 30 || opzioneGiorno == 31 ||opzioneGiorno == 29)
+			alert (" errore il mese e' di 28 giorni");
+			return false;
+	}
+	else if(opzioneMese == 1 || opzioneMese == 3 || opzioneMese == 5 || opzioneMese == 7 || opzioneMese == 8 || opzioneMese == 10 || opzioneMese == 12){
+		if(opzioneGiorno == 31)
+		alert("ok il mese e' di 31 giorni");
+		return true;
+	}
+}
+
+/*validazione orario*/
+function validateOra(){
+	var opzioneDalle = document.getElementById("").value;
+	var opzioneAlle = document.getElementById("ora-alle").value;
+}
+
+
+
+
+
+
+
+
+// script validazione Ricevimento
+
+function validateGiorno(){
+	var opzioneGiorno = document.getElementById("giorno").value;
+	
+	if(opzioneGiorno == 'giorno'){	
+		document.getElementById("giorno").style.borderColor = "red";
+		return false;
+	}
+	else{
+		alert("ok da giorno");
+		document.getElementById("giorno").style.borderColor = "#ccc";
+		return true;
+	}
+}
+
+function validateOrario(){
+	var opzioneDalle = document.getElementById("dalle").value;
+	var opzioneAlle = document.getElementById("alle").value;
+	var letters = /^([01]?[0-9]|2[0-3])(:([0-5][0-9]))$/;
+	
+	if(opzioneDalle.match(letters) && opzioneAlle.match(letters)){
+		alert ("ok da orario");
+		return true;
+	}
+	else{
+		alert("formato non valido");
+		return false;
 	}
 }

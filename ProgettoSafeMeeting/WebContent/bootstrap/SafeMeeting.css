@@ -8,7 +8,7 @@
 	padding-right: 0px;
 	padding-left: 0px;
 }
-
+/*logo*/
 #logo{
 	position: relative;
 	width: 70px;
@@ -31,7 +31,7 @@
 .sidebar{
 	left: 0px;
 }
-
+/* foto docente */
 #foto-docente{
 	width: 100px;
 	margin:0px 0px 10px 10px;
@@ -54,13 +54,12 @@
 #studio{
 	display: none;
 }
-
 #sfondo{
-	background-size: cover;
-	height: 100%;
-	background-image:url("Images/unisa.jpg");
-	background-position: center;
-	background-repeat: no-repeat;
+	 background: url("images/unisa.jpg") no-repeat center center fixed;
+	 -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
 }
 
 @media (max-width: 768px) {
@@ -68,19 +67,20 @@
 	margin-right: 100%;
 	}
 }	
+/*errore registrazione*/
 #errore{
 	color: red;
 }
-
+/*Assenza*/
 #giorno{
-	width: 100px; 				
+	width: 110px; 				
 	}	
 #mese{
 	width: 110px;
 	margin-left: 20px
 	}
 #anno{
-	width: 100px;
+	width: 110px;
 	margin-left: 20px
 }
 
@@ -92,7 +92,7 @@
 	width: 100px;
 	margin-left: 20px
 }
-
+/*ricevimento*/
 #alle{
 	width: 100px;
 }
@@ -100,8 +100,8 @@
 	width: 100px;
 }
 
-#madonna{
-	margin-bottom: 83px;
+#scelta-giorno{
+	margin-bottom: 111px;
 } 
 #input-seleziona-durata{
 	margin-left: 10px;
@@ -109,6 +109,39 @@
 #spazio{
 	width: 500px;
 }
+
+@media (max-width: 1215px){
+	#spazio{
+		width: 80px;
+	}
+}
+
+#testo{
+	font-size: 21px;
+	margin-top: 200px;
+	text-align: center;
+}
+
+#seleiona-giorno{
+	width: 120px;
+}
+#btn-aggiungi-orario{
+	text-align: center;
+}
+
+/*navbar responsive*/
+.navbar-toggle{
+	left: 15px;
+	top: 9px;
+}
+/*responsive ricevimento alternativo*/
+/*@media (max-height: 530px){
+	.panel-body{
+		position: relative;
+		bottom: 150px;
+	}
+}*/
+
 /*CSS studente*/
 #foto-studente{
 	width: 100px;

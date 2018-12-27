@@ -95,9 +95,10 @@
 		            		<label >Indicare il giorno dell'assenza</label> 
 		            			<table>  
 		            				<tr>  
-		            					<td>      	
-						            		<select onfocus="if(validateData()) == false{return false;}" class="form-control" id="giorno" >
-						            			<option value="">Giorno</option>
+		            					<td>
+		            					<form name="">      	
+						            		<select class="form-control" id="giorno" name="giorno" >
+						            			<option value="giorno">Giorno</option>
 							            		<option>1</option>
 							            		<option>2</option>
 							            		<option>3</option>
@@ -129,28 +130,30 @@
 							            		<option>30</option>
 							            		<option>31</option>
 							            	</select> 
+							            	</form>
 				            			</td>
 				            			<td>				                     	
 						            		<select class="form-control" id="mese">
-						            			<option>Mese</option>
-							            		<option>Gennaio</option>
-							            		<option>Febbraio</option>
-							            		<option>Marzo</option>
-							            		<option>Aprile</option>
-							            		<option>Maggio</option>
-							            		<option>Giugno</option>
-							            		<option>Luglio</option>
-							            		<option>Agosto</option>
-							            		<option>Settembre</option>
-							            		<option>Ottobre</option>
-							            		<option>Novembre</option>
-							            		<option>Dicembre</option>	            		
+						            			<option value="mese">Mese</option>
+							            		<option value="1">Gennaio</option>
+							            		<option value="2">Febbraio</option>
+							            		<option value="3">Marzo</option>
+							            		<option value="4">Aprile</option>
+							            		<option value="5">Maggio</option>
+							            		<option value="6">Giugno</option>
+							            		<option value="7">Luglio</option>
+							            		<option value="8">Agosto</option>
+							            		<option value="9">Settembre</option>
+							            		<option value="10">Ottobre</option>
+							            		<option value="11">Novembre</option>
+							            		<option value="12">Dicembre</option>	            		
 							            	</select>
 				            			</td>
 				            			<td>
 							            	<select class="form-control" id="anno" onfocus="getAnno();">
-							            		<option>Anno</option>			            		
+							            		<option value="Anno">Anno</option>			            		
 							            	</select>
+							            	
 				            			</td>
 			            			</tr>
 				            	</table>
@@ -162,62 +165,65 @@
 			            			<tr>
 			            				<td>
 							            	<select class="form-control" id="ora-dalle">
-							            		<option>Dalle</option>
-							            		<option>9:00</option>
-							            		<option>9:30</option>
-							          			<option>10:00</option>
-							            		<option>10:30</option>    
-							            		<option>11:00</option>
-							            		<option>11:30</option>
-							            		<option>12:00</option>
-							            		<option>12:30</option>
-							            		<option>13:00</option>
-							            		<option>13:30</option>
-							            		<option>14:00</option>
-							            		<option>14:30</option>
-							            		<option>15:00</option>
-							            		<option>15:30</option>
-							            		<option>16:00</option>
-							            		<option>16:30</option>
-							            		<option>17:00</option>
-							            		<option>17:30</option>
-							            		<option>18:00</option>
+							            		<option value="dalle">Dalle</option>
+							            		<option value="1">9:00</option>
+							            		<option value="2">9:30</option>
+							          			<option value="3">10:00</option>
+							            		<option value="4">10:30</option>    
+							            		<option value="5">11:00</option>
+							            		<option value="6">11:30</option>
+							            		<option value="7">12:00</option>
+							            		<option value="8">12:30</option>
+							            		<option value="9">13:00</option>
+							            		<option value="10">13:30</option>
+							            		<option value="11">14:00</option>
+							            		<option value="12">14:30</option>
+							            		<option value="13">15:00</option>
+							            		<option value="14">15:30</option>
+							            		<option value="15">16:00</option>
+							            		<option value="16">16:30</option>
+							            		<option value="17">17:00</option>
+							            		<option value="18">17:30</option>
+							            		<option value="19">18:00</option>
 							            	</select>
 					            		</td>
 					            		<td>
 							            	<select class="form-control" id="ora-alle">
-							            		<option>Alle</option> 		
-							            		<option>9:00</option>
-							            		<option>9:30</option>
-							          			<option>10:00</option>
-							            		<option>10:30</option>    
-							            		<option>11:00</option>
-							            		<option>11:30</option>
-							            		<option>12:00</option>
-							            		<option>12:30</option>
-							            		<option>13:00</option>
-							            		<option>13:30</option>
-							            		<option>14:00</option>
-							            		<option>14:30</option>
-							            		<option>15:00</option>
-							            		<option>15:30</option>
-							            		<option>16:00</option>
-							            		<option>16:30</option>
-							            		<option>17:00</option>
-							            		<option>17:30</option>
-							            		<option>18:00</option>	 
+							            		<option value="alle">Alle</option> 		
+							            		<option value="1">9:00</option>
+							            		<option value="2">9:30</option>
+							          			<option value="3">10:00</option>
+							            		<option value="4">10:30</option>    
+							            		<option value="5">11:00</option>
+							            		<option value="6">11:30</option>
+							            		<option value="7">12:00</option>
+							            		<option value="8">12:30</option>
+							            		<option value="9">13:00</option>
+							            		<option value="10">13:30</option>
+							            		<option value="11">14:00</option>
+							            		<option value="12">14:30</option>
+							            		<option value="13">15:00</option>
+							            		<option value="14">15:30</option>
+							            		<option value="15">16:00</option>
+							            		<option value="16">16:30</option>
+							            		<option value="17">17:00</option>
+							            		<option value="18">17:30</option>
+							            		<option value="19">18:00</option>	 
 							            	</select>
 							            </td>
 					            	</tr>
 				            	</table>				            
 		            	<br>
-		            	<textarea class="form-control" rows="20" cols="100" placeholder="Inserire qui il messaggio" id="messaggio"></textarea>
+		            	<textarea class="form-control" rows="20" cols="100" placeholder="Inserire qui il messaggio" id="messaggio"></textarea>		  
 	            	</div>
 	            		<div id="button">
-	            			<button class="btn btn-default">Invia Messaggio</button>
-	            			<button class="btn btn-default">Annulla</button>
+	            			<button class="btn btn-default" onclick="if(validateData()==false){return false;}">Invia Messaggio</button>
+	            			<button class="btn btn-default" onclick="if(controllaOrario()==false){return false;}">Annulla</button>
 	            		</div>
-	            		<br>
+					<br>
+					<p id="err">padre</p>
+					<p id="err1">figlio</p>
+					<p id="err2">spirito santo</p>
 				</div>	
 		</div>
     <!-- /#wrapper -->

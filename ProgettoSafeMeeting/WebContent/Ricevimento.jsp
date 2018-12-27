@@ -93,10 +93,10 @@
 			    	<table>
 			    		<tr>
 			    			<td>
-			    				<div id="madonna">
-						        	<label>Seleziona Giorno</label>
-						        		<select class="form-control" id="giorno">
-						        			<option>Giorno</option>
+			    				<div id="scelta-giorno">
+						        	<label  id ="seleiona-giorno">Seleziona Giorno</label>
+						        		<select onblur="validateGiorno();" class="form-control" id="giorno">
+						        			<option value ="giorno">Giorno</option>
 						        			<option>Lunedi</option>
 						        			<option>Martedi</option>
 						        			<option>Mercoledi</option>
@@ -166,7 +166,7 @@
 					     	</td>
 					  		<td>
 					  			<div>
-									<button class="btn btn-default">Salva</button>
+									<button onclick="validateOrario();" class="btn btn-default">Salva</button>
 		            				<button class="btn btn-default">Annulla</button>
 		            			</div>
 					  		</td>
@@ -197,7 +197,7 @@
     <script src="bootstrap/dist/js/sb-admin-2.js"></script>
     
     <!-- Script SafeMeeting -->
-    <script src="Script.js"></script>
+    <script src="bootstrap/Script.js"></script>
 
 </body>
 
