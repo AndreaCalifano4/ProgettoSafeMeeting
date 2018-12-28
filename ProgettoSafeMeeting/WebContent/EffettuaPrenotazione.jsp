@@ -165,7 +165,7 @@
   						</tr>
   				</table>
   				<br><br>
-	       		<button class="btn btn-primary btn-lg" type="button">Completa</button>
+	       		<button onclick="validateCorso();" class="btn btn-primary btn-lg" type="button">Completa</button>
 	       	</div>
         </div>
         <!-- /#page-wrapper -->
@@ -192,13 +192,8 @@
     <!-- Script Calendario  -->
   	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script>
-		$( function() {
-		$( "#datepicker" ).datepicker();
-		} );
+	<script src="bootstrap/Jquery.js"></script>
 		
-	</script>
-	
     <!-- Script SafeMeeting -->
     <script src="bootstrap/Script.js"></script>
 

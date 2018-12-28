@@ -90,8 +90,7 @@
 	            <div class="container-fluid">
 	            	<div class="form-group">
 	            	<br>
-	            	
-	            		<div id="giorno-mese-anno">		            		
+	            		       	            		
 		            		<label >Indicare il giorno dell'assenza</label> 
 		            			<table>  
 		            				<tr>  
@@ -151,81 +150,81 @@
 				            			</td>
 				            			<td>
 							            	<select class="form-control" id="anno" onfocus="getAnno();">
-							            		<option value="Anno">Anno</option>			            		
-							            	</select>
-							            	
+							            		<option value="Anno">Anno</option>		            		
+							            	</select>						            	
 				            			</td>
 			            			</tr>
 				            	</table>
 				            </div>
 				            	<br>
-				            	
-			            	<label>Indicare la fascia Oraria</label>
-			            		<table>
-			            			<tr>
-			            				<td>
-							            	<select class="form-control" id="ora-dalle">
-							            		<option value="dalle">Dalle</option>
-							            		<option value="1">9:00</option>
-							            		<option value="2">9:30</option>
-							          			<option value="3">10:00</option>
-							            		<option value="4">10:30</option>    
-							            		<option value="5">11:00</option>
-							            		<option value="6">11:30</option>
-							            		<option value="7">12:00</option>
-							            		<option value="8">12:30</option>
-							            		<option value="9">13:00</option>
-							            		<option value="10">13:30</option>
-							            		<option value="11">14:00</option>
-							            		<option value="12">14:30</option>
-							            		<option value="13">15:00</option>
-							            		<option value="14">15:30</option>
-							            		<option value="15">16:00</option>
-							            		<option value="16">16:30</option>
-							            		<option value="17">17:00</option>
-							            		<option value="18">17:30</option>
-							            		<option value="19">18:00</option>
-							            	</select>
-					            		</td>
-					            		<td>
-							            	<select class="form-control" id="ora-alle">
-							            		<option value="alle">Alle</option> 		
-							            		<option value="1">9:00</option>
-							            		<option value="2">9:30</option>
-							          			<option value="3">10:00</option>
-							            		<option value="4">10:30</option>    
-							            		<option value="5">11:00</option>
-							            		<option value="6">11:30</option>
-							            		<option value="7">12:00</option>
-							            		<option value="8">12:30</option>
-							            		<option value="9">13:00</option>
-							            		<option value="10">13:30</option>
-							            		<option value="11">14:00</option>
-							            		<option value="12">14:30</option>
-							            		<option value="13">15:00</option>
-							            		<option value="14">15:30</option>
-							            		<option value="15">16:00</option>
-							            		<option value="16">16:30</option>
-							            		<option value="17">17:00</option>
-							            		<option value="18">17:30</option>
-							            		<option value="19">18:00</option>	 
-							            	</select>
-							            </td>
-					            	</tr>
-				            	</table>				            
+				          	<div id="fascia-oraria">  	
+				            	<label>Indicare la fascia Oraria</label>
+				            		<table>
+				            			<tr>
+				            				<td>
+								            	<select class="form-control" id="ora-dalle">
+								            		<option value="dalle">Dalle</option>
+								            		<option value="1">9:00</option>
+								            		<option value="2">9:30</option>
+								          			<option value="3">10:00</option>
+								            		<option value="4">10:30</option>    
+								            		<option value="5">11:00</option>
+								            		<option value="6">11:30</option>
+								            		<option value="7">12:00</option>
+								            		<option value="8">12:30</option>
+								            		<option value="9">13:00</option>
+								            		<option value="10">13:30</option>
+								            		<option value="11">14:00</option>
+								            		<option value="12">14:30</option>
+								            		<option value="13">15:00</option>
+								            		<option value="14">15:30</option>
+								            		<option value="15">16:00</option>
+								            		<option value="16">16:30</option>
+								            		<option value="17">17:00</option>
+								            		<option value="18">17:30</option>
+								            		<option value="19">18:00</option>
+								            	</select>
+						            		</td>
+						            		<td>
+								            	<select class="form-control" id="ora-alle">
+								            		<option value="alle">Alle</option> 		
+								            		<option value="1">9:00</option>
+								            		<option value="2">9:30</option>
+								          			<option value="3">10:00</option>
+								            		<option value="4">10:30</option>    
+								            		<option value="5">11:00</option>
+								            		<option value="6">11:30</option>
+								            		<option value="7">12:00</option>
+								            		<option value="8">12:30</option>
+								            		<option value="9">13:00</option>
+								            		<option value="10">13:30</option>
+								            		<option value="11">14:00</option>
+								            		<option value="12">14:30</option>
+								            		<option value="13">15:00</option>
+								            		<option value="14">15:30</option>
+								            		<option value="15">16:00</option>
+								            		<option value="16">16:30</option>
+								            		<option value="17">17:00</option>
+								            		<option value="18">17:30</option>
+								            		<option value="19">18:00</option>	 
+								            	</select>
+								            </td>
+						            	</tr>
+					            	</table>
+					            </div>				            
 		            	<br>
 		            	<textarea class="form-control" rows="20" cols="100" placeholder="Inserire qui il messaggio" id="messaggio"></textarea>		  
 	            	</div>
 	            		<div id="button">
 	            			<button class="btn btn-default" onclick="if(validateData()==false){return false;}">Invia Messaggio</button>
-	            			<button class="btn btn-default" onclick="if(controllaOrario()==false){return false;}">Annulla</button>
+	            			<button class="btn btn-default" onclick="validateOra()">Annulla</button>
 	            		</div>
 					<br>
 					<p id="err">padre</p>
 					<p id="err1">figlio</p>
 					<p id="err2">spirito santo</p>
 				</div>	
-		</div>
+
     <!-- /#wrapper -->
 
     <!-- jQuery -->

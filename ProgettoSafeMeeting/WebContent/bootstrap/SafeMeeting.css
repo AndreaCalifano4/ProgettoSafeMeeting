@@ -92,13 +92,30 @@
 	width: 100px;
 	margin-left: 20px
 }
+
+/*assenza responsive*/
+@media(max-width: 400px){
+	#anno{
+		position: relative;
+   		top: 50px;
+    	right: 261px;
+	}
+
+	#fascia-oraria{
+		margin-top:50px;
+	}
+}
+
+#button{
+	margin-top:20px;
+	position: relative;
+	left: 15px;
+}
+
+
+
 /*ricevimento*/
-#alle{
-	width: 100px;
-}
-#dalle{
-	width: 100px;
-}
+
 
 #scelta-giorno{
 	margin-bottom: 111px;
@@ -106,16 +123,45 @@
 #input-seleziona-durata{
 	margin-left: 10px;
 }
+
+#seleziona-orario-alle{
+	margin-top: 25px;
+	margin-left: -20px;
+	width: 120px;
+}
+
+/*spazio tabella*/
 #spazio{
 	width: 500px;
 }
-
+ /*spazio tabella responsive*/
 @media (max-width: 1215px){
 	#spazio{
 		width: 80px;
 	}
 }
+/*Ricevimento responsive*/
+@media(max-width: 779px){
+	#Seleziona-durata{
+		position: relative;
+		top: 80px;
+		right: 200px;
+	}
+	#seleziona-orario{
+		margin-top: 100px;
+	}
 
+}
+/* seleziona orario responsive*/
+@media(max-width: 770px){
+	#seleziona-orario{
+		position: relative;
+		top: 75px;
+	}
+}
+
+
+/*testo orario di ricevimento*/
 #testo{
 	font-size: 21px;
 	margin-top: 200px;
@@ -176,4 +222,9 @@
 	width: 100px;
 	margin:0px 0px 10px 10px;
 	text-align: center;
+}
+
+/*calendario*/
+#calendario{
+	width: 250px;
 }

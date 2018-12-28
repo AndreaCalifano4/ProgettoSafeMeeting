@@ -107,7 +107,9 @@
 					    	</td> 				    		
 					     	<td id="spazio">
 					     	</td>
-					        <td>					        				        
+					        <td>
+					        
+					        <div id="Seleziona-durata">					        				        
 						        <table>
 						        	<tr>
 						        		<td>						     
@@ -119,7 +121,7 @@
 						      				<p>Tesi</p>	
 						      			</td>	
 						      			<td>
-						      				<input id="input-seleziona-durata" class="form-control" placeholder="inserisci durata" type="text">	
+						      				<input id="input-seleziona-durata" class="form-control" placeholder="inserisci durata in minuti" type="text">	
 						      			</td>
 						      		</tr>
 						      		<tr>
@@ -127,7 +129,7 @@
 							            	<p>Informazioni</p>
 							            </td>
 						      			<td>
-						      				<input id="input-seleziona-durata" class="form-control" placeholder="inserisci durata" type="text">	
+						      				<input id="input-seleziona-durata" class="form-control" placeholder="inserisci durata in minuti" type="text">	
 						      			</td>							            				 
 						      		</tr>							           				 
 									<tr>
@@ -135,28 +137,73 @@
 											<p>Problematiche corso</p>
 										</td>
 						      			<td>
-						      				<input id="input-seleziona-durata" class="form-control" placeholder="inserisci durata" type="text">		
+						      				<input id="input-seleziona-durata" class="form-control" placeholder="inserisci durata in minuti" type="text">		
 						      			</td>										
 							       	</tr>
 							       	<tr>
 							       		<td>
 											<p>Altro</p>	
 						      			<td>
-						      				<input id="input-seleziona-durata" class="form-control" placeholder="inserisci durata" type="text">								      																								       			
+						      				<input id="input-seleziona-durata" class="form-control" placeholder="inserisci durata in minuti" type="text">								      																								       			
 							       		</td>
 							       	</tr>
 						        </table>
+						 	</div>
 				          	</td>				          	
 				     	</tr>				            	
-				        <tr>
+				        <tr id = "seleziona-orario">
 				        	<td>
-				        		<div>    	
+				        		<div id="seleziona-orario-dalle">    	
 					            	<label>Seleziona Orario</label>
-						            	<input class="form-control" placeholder="Dalle" name="dalle" id="dalle" type="text" >
-						            	<input class="form-control" placeholder="Alle" name="alle" id="alle" type="text">
+						            	<select class="form-control"  name="dalle" id="ora-dalle"  >
+						            		<option>Dalle</option>
+							            		<option value="1">9:00</option>
+							            		<option value="2">9:30</option>
+							          			<option value="3">10:00</option>
+							            		<option value="4">10:30</option>    
+							            		<option value="5">11:00</option>
+							            		<option value="6">11:30</option>
+							            		<option value="7">12:00</option>
+							            		<option value="8">12:30</option>
+							            		<option value="9">13:00</option>
+							            		<option value="10">13:30</option>
+							            		<option value="11">14:00</option>
+							            		<option value="12">14:30</option>
+							            		<option value="13">15:00</option>
+							            		<option value="14">15:30</option>
+							            		<option value="15">16:00</option>
+							            		<option value="16">16:30</option>
+							            		<option value="17">17:00</option>
+							            		<option value="18">17:30</option>
+							            		<option value="19">18:00</option>
+						            	</select>						            	
 						       	</div>
 					      	</td>
 					      	<td>
+					      		<div id="seleziona-orario-alle">
+						      		<select class="form-control" name="ora-alle" id="ora-alle">
+						      			<option>Alle</option>
+					      					<option value="1">9:00</option>
+						            		<option value="2">9:30</option>
+						          			<option value="3">10:00</option>
+						            		<option value="4">10:30</option>    
+						            		<option value="5">11:00</option>
+						            		<option value="6">11:30</option>
+						            		<option value="7">12:00</option>
+						            		<option value="8">12:30</option>
+						            		<option value="9">13:00</option>
+						            		<option value="10">13:30</option>
+						            		<option value="11">14:00</option>
+						            		<option value="12">14:30</option>
+						            		<option value="13">15:00</option>
+						            		<option value="14">15:30</option>
+						            		<option value="15">16:00</option>
+						            		<option value="16">16:30</option>
+						            		<option value="17">17:00</option>
+						            		<option value="18">17:30</option>
+						            		<option value="19">18:00</option>
+						      	</select>
+					      	</div>
 					      	</td>
 					  	</tr>
 					  	<tr>
@@ -165,7 +212,7 @@
 					  		<td id="spazio">
 					     	</td>
 					  		<td>
-					  			<div>
+					  			<div id="btn-salva-annulla">
 									<button onclick="validateOrario();" class="btn btn-default">Salva</button>
 		            				<button class="btn btn-default">Annulla</button>
 		            			</div>

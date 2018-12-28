@@ -215,26 +215,9 @@ function getAnno(){
 	var anno = a + 1900; 
 	for(var i=0; i<2; i++){
 		increment = anno + i;
-		document.getElementById("anno").innerHTML = '<option> Anno </option>' + '<option>'+ anno + '</option>' + '<option>'+ increment + '</option>';
+		document.getElementById("anno").innerHTML = '<option> Anno </option>' + '<option>'+ anno + '</option>' + '<option>'+ increment + '</option>'+ '<option value="2020">2020</option>';
 	}
 }
-/*
-function isLeap(opzioneAnno){
-
-	var result = false;
-	if ( ( year % 4 ) == 0 ) {
-		if ( ( year % 100 ) != 0 ) {
-			result = true;
-		}
-		else if ( ( year % 400 ) == 0 ) {
-			result = true;
-			}
-		}
-		return result;
-	}
-*/	
-	
-
 
 function validateData(){
 	var opzioneGiorno = document.getElementById("giorno").value;
@@ -246,14 +229,13 @@ function validateData(){
 	var sceltaGiorno = validationGiorno(opzioneGiorno);
 	var sceltaMese = validationMese(opzioneMese);
 	var sceltaAnno = validationAnno(opzioneAnno);
-	var r = controllaGiorno(opzioneGiorno, opzioneMese);
-//	var b = isLeap(opzioneAnno);
+	var r = controllaGiorno(opzioneGiorno, opzioneMese, opzioneAnno);
 	
 	document.getElementById("err").innerHTML = opzioneGiorno;
 	document.getElementById("err1").innerHTML = opzioneMese;
 	document.getElementById("err2").innerHTML = opzioneAnno;
 
-	if(sceltaGiorno == false || sceltaMese == false || sceltaAnno == false || r == false /*|| b == false*/ ){
+	if(sceltaGiorno == false || sceltaMese == false || sceltaAnno == false || r == false  ){
 		return false;
 	}
 }
@@ -298,18 +280,41 @@ function validationAnno(opzioneAnno){
 	}
 }
 
+//controllo anno bisestile
+function isLeap(opzioneAnno){
+	var result = false;
+	
+	if ( ( opzioneAnno % 4 ) == 0 ) {
+		if ( ( opzioneAnno % 100 ) != 0 ) {
+			result = true;
+		}
+		else if ( ( opzioneAnno % 400 ) == 0 ) {
+			result = true;
+			}
+		}
+		return result;
+	}
 
-function controllaGiorno(opzioneGiorno, opzioneMese){
+
+
+function controllaGiorno(opzioneGiorno, opzioneMese, opzioneAnno){
+	
+	var bisestile = isLeap(opzioneAnno);
 		
 	if(opzioneMese == 4 || opzioneMese == 6 || opzioneMese == 9 || opzioneMese == 11){
 		if(opzioneGiorno == 31)
 			alert (" errore il mese e' di 30 giorni");
 			return false;
 	}
-	else if(opzioneMese == 2 ){
-		if(opzioneGiorno == 30 || opzioneGiorno == 31 ||opzioneGiorno == 29)
+	else if(opzioneMese == 2 && !bisestile ) {		
+			if(opzioneGiorno == 30 || opzioneGiorno == 31 || opzioneGiorno == 29)		
 			alert (" errore il mese e' di 28 giorni");
 			return false;
+	}
+	else if(opzioneMese == 2 && bisestile) {		
+		if(opzioneGiorno == 30 || opzioneGiorno == 31 )
+		alert (" errore il mese e' di 29 giorni");
+		return false;
 	}
 	else if(opzioneMese == 1 || opzioneMese == 3 || opzioneMese == 5 || opzioneMese == 7 || opzioneMese == 8 || opzioneMese == 10 || opzioneMese == 12){
 		if(opzioneGiorno == 31)
@@ -320,15 +325,30 @@ function controllaGiorno(opzioneGiorno, opzioneMese){
 
 /*validazione orario*/
 function validateOra(){
-	var opzioneDalle = document.getElementById("").value;
+	var opzioneDalle = document.getElementById("ora-dalle").value;
 	var opzioneAlle = document.getElementById("ora-alle").value;
+	document.getElementById("err").innerHTML = opzioneDalle;
+	document.getElementById("err1").innerHTML = opzioneAlle;
+	var sceltaOra = validationOra(opzioneDalle, opzioneAlle);
+	
+	if(sceltaOra == false){
+		return false;
+	}
 }
 
 
-
-
-
-
+function validationOra(opzioneDalle, opzioneAlle){	
+	
+	if(opzioneDalle == opzioneAlle || opzioneDalle > opzioneAlle){
+		alert("errore da ora");
+		return false;
+	}
+	else {
+		alert("ok da ora");
+		return false
+	}
+	
+}
 
 
 // script validazione Ricevimento
@@ -359,5 +379,58 @@ function validateOrario(){
 	else{
 		alert("formato non valido");
 		return false;
+	}
+}
+
+
+//script validazione effettua prenotazione
+function validateCorso(){
+	var opzioneCorso = document.getElementById("corso").value;
+	var opzioneTipologia = document.getElementById("tipologia").value;
+	var opzioneData = document.getElementById("datepicker").value;
+	
+	var d = validationData(opzioneData);
+	var c = validationCorso(opzioneCorso);
+	var t = validationTipologia(opzioneTipologia);
+	
+	if(c == false || t == false || d == false){
+		return false;
+	}
+}
+
+function validationCorso(opzioneCorso){
+	if(opzioneCorso == 'corso'){
+		alert('errore da corso');
+		document.getElementById("corso").style.borderColor = "red";
+		return false;
+	}
+	else{
+		alert('ok da corso');
+		document.getElementById("corso").style.borderColor = "#ccc";
+		return true;
+	}
+}
+
+function validationTipologia(opzioneTipologia){
+	if(opzioneTipologia == 'tipologia'){
+		alert('errore da tipologia');
+		document.getElementById("tipologia").style.borderColor = "red";
+		return false;
+	}
+	else{
+		alert('ok da tipologia');
+		document.getElementById("tipologia").style.borderColor = "#ccc";
+		return true;
+	}
+}
+
+function validationData(opzioneData){
+	if($('#datepicker').val() == ''){
+		alert('errore da data')
+		document.getElementById("datepicker").style.borderColor = "red";
+	}
+	else{
+		alert('ok da data')
+		document.getElementById("datepicker").style.borderColor = "#ccc";		
 	}
 }
