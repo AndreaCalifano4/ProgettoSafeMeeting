@@ -90,9 +90,7 @@
         	</div>
             <div class="container-fluid">
 		    	<div class="form-group">
-			    	<table>
-			    		<tr>
-			    			<td>
+
 			    				<div id="scelta-giorno">
 						        	<label  id ="seleiona-giorno">Seleziona Giorno</label>
 						        		<select onblur="validateGiorno();" class="form-control" id="giorno">
@@ -103,13 +101,9 @@
 						        			<option>Giovedi</option>		        			
 						        			<option>Venerdi</option>
 						            	</select>
-						       	</div>
-					    	</td> 				    		
-					     	<td id="spazio">
-					     	</td>
-					        <td>
+						
 					        
-					        <div id="Seleziona-durata">					        				        
+					        <div id="seleziona-durata">					        				        
 						        <table>
 						        	<tr>
 						        		<td>						     
@@ -149,10 +143,7 @@
 							       	</tr>
 						        </table>
 						 	</div>
-				          	</td>				          	
-				     	</tr>				            	
-				        <tr id = "seleziona-orario">
-				        	<td>
+
 				        		<div id="seleziona-orario-dalle">    	
 					            	<label>Seleziona Orario</label>
 						            	<select class="form-control"  name="dalle" id="ora-dalle"  >
@@ -178,8 +169,6 @@
 							            		<option value="19">18:00</option>
 						            	</select>						            	
 						       	</div>
-					      	</td>
-					      	<td>
 					      		<div id="seleziona-orario-alle">
 						      		<select class="form-control" name="ora-alle" id="ora-alle">
 						      			<option>Alle</option>
@@ -204,21 +193,11 @@
 						            		<option value="19">18:00</option>
 						      	</select>
 					      	</div>
-					      	</td>
-					  	</tr>
-					  	<tr>
-					  		<td>
-					  		</td>
-					  		<td id="spazio">
-					     	</td>
-					  		<td>
+	
 					  			<div id="btn-salva-annulla">
-									<button onclick="validateOrario();" class="btn btn-default">Salva</button>
-		            				<button class="btn btn-default">Annulla</button>
+									<button onclick="validateOrario();" class="btn btn-default">Salva</button>										
+		            				<button class="btn btn-default">Annulla</button>			            			
 		            			</div>
-					  		</td>
-					  	</tr>			            
-			        </table>
 		    	</div>
 	       	</div>      
         </div>

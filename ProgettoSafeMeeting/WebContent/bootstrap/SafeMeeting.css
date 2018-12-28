@@ -120,24 +120,45 @@
 #scelta-giorno{
 	margin-bottom: 111px;
 } 
+#seleziona-durata{
+	width: 330px;
+	width: -moz-fit-content;
+	position: relative;
+	left:50%;
+	bottom: 60px;
+}
+
 #input-seleziona-durata{
-	margin-left: 10px;
+	width: 180px;
+	margin-left: 5px;
 }
 
 #seleziona-orario-alle{
-	margin-top: 25px;
-	margin-left: -20px;
-	width: 120px;
+	width: 330px;
+	width: -moz-fit-content;
+	position: relative;
+	left: 80px;
+	bottom: 34px;
+	margin-left: 20px;
 }
 
-/*spazio tabella*/
-#spazio{
-	width: 500px;
+#btn-salva-annulla{
+	position: relative;
+	left: 70%;
+	width: -moz-max-content;
+	width: 200px;
 }
- /*spazio tabella responsive*/
-@media (max-width: 1215px){
-	#spazio{
-		width: 80px;
+/*form aggiungi orario ricevimento responsive*/
+@media(max-width: 880px){
+	#seleziona-durata{
+		position: relative;
+		bottom: 0;
+		left: 0;
+		margin-bottom: 60px;
+		top: 30px;
+	}
+	#btn-salva-annulla{
+		left: 0;
 	}
 }
 /*Ricevimento responsive*/
@@ -150,7 +171,7 @@
 	#seleziona-orario{
 		margin-top: 100px;
 	}
-
+	
 }
 /* seleziona orario responsive*/
 @media(max-width: 770px){
