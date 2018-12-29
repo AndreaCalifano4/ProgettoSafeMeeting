@@ -145,7 +145,6 @@ function validationRipPassword(ripPassword){
 	else{
 		document.getElementById("ripPassword").style.borderColor = "#ccc";
 		return true;
-		
 	}
 }
 
@@ -206,7 +205,6 @@ function validateEmail(email) {
 	}   	
 }
 
-
 //validazione Registrazione
 
 function getAnno(){
@@ -214,24 +212,17 @@ function getAnno(){
 	var a = data.getYear();
 	var anno = a + 1900; 
 	document.getElementById("anno").innerHTML = '<option> Anno </option>' + '<option>'+ anno + '</option>' + '<option>'+ (anno + 1) + '</option>'+ '<option>'+ (anno+2) +'</option>';
-	
 }
 
 function validateData(){
 	var opzioneGiorno = document.getElementById("giorno").value;
 	var opzioneMese = document.getElementById("mese").value;
 	var opzioneAnno = document.getElementById("anno").value;
-
-	
 	
 	var sceltaGiorno = validationGiorno(opzioneGiorno);
 	var sceltaMese = validationMese(opzioneMese);
 	var sceltaAnno = validationAnno(opzioneAnno);
 	var r = controllaGiorno(opzioneGiorno, opzioneMese, opzioneAnno);
-	
-	document.getElementById("err").innerHTML = opzioneGiorno;
-	document.getElementById("err1").innerHTML = opzioneMese;
-	document.getElementById("err2").innerHTML = opzioneAnno;
 
 	if(sceltaGiorno == false || sceltaMese == false || sceltaAnno == false || r == false  ){
 		return false;
@@ -323,26 +314,56 @@ function controllaGiorno(opzioneGiorno, opzioneMese, opzioneAnno){
 function validateOra(){
 	var opzioneDalle = document.getElementById("ora-dalle").value;
 	var opzioneAlle = document.getElementById("ora-alle").value;
-	document.getElementById("err").innerHTML = opzioneDalle;
-	document.getElementById("err1").innerHTML = opzioneAlle;
-	var sceltaOra = validationOra(opzioneDalle, opzioneAlle);
-	document.getElementById("err2").innerHTML = Boolean(opzioneDalle > opzioneAlle);
-	if(sceltaOra == false){
+	
+	var scelta1 = parseInt(opzioneDalle,10);
+	var scelta2 = parseInt(opzioneAlle,10);
+	
+	var Ora = validationOra(scelta1, scelta2);
+
+	var dalle = controllaDalle(opzioneDalle);
+	var alle = controllaAlle(opzioneAlle);
+	
+	if(Ora == false || dalle == false || alle == false){
 		return false;
 	}
 }
 
-function validationOra(opzioneDalle, opzioneAlle){	
-	
-	if(opzioneDalle >= opzioneAlle){
+function validationOra(scelta1, scelta2){	
+		
+	if(scelta1 >= scelta2){
 		alert("errore da ora");
+		document.getElementById("ora-alle").style.borderColor = "#ccc";
+		document.getElementById("ora-dalle").style.borderColor = "#ccc";
 		return false;
 	}
-	else if (opzioneDalle < opzioneAlle) {
+	else if (scelta1 < scelta2) {
 		alert("ok da ora");
+		document.getElementById("ora-alle").style.borderColor = "#ccc";
+		document.getElementById("ora-dalle").style.borderColor = "#ccc";
 		return true;
 	}
 	
+}
+
+function controllaDalle(opzioneDalle){
+	if(opzioneDalle == 'dalle'){
+		alert('campo 1 mancante');
+		document.getElementById("ora-dalle").style.borderColor = "red";
+		return true;
+	}
+	else
+		document.getElementById("ora-dalle").style.borderColor = "#ccc";
+		return true;	
+}
+function controllaAlle(opzioneAlle){	
+		if(opzioneAlle == 'alle'){
+			alert('campo 2 mancante');
+			document.getElementById("ora-alle").style.borderColor = "red";
+			return false;
+		}	
+		else
+			document.getElementById("ora-alle").style.borderColor = "#ccc";
+			return true;
 }
 
 // script validazione Orario di ricevimento

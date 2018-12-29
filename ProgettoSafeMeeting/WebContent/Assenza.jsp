@@ -216,13 +216,10 @@
 		            	<textarea class="form-control" rows="20" cols="100" placeholder="Inserire qui il messaggio" id="messaggio"></textarea>		  
 	            	</div>
 	            		<div id="button">
-	            			<button class="btn btn-default" onclick="if(validateData()==false){return false;}">Invia Messaggio</button>
-	            			<button class="btn btn-default" onclick="validateOra()">Annulla</button>
+	            			<button class="btn btn-default" onclick="validateData(); validateOra();">Invia Messaggio</button>
+	            			<button class="btn btn-default">Annulla</button>
 	            		</div>
 					<br>
-					<p id="err">padre</p>
-					<p id="err1">figlio</p>
-					<p id="err2">spirito santo</p>
 				</div>	
 
     <!-- /#wrapper -->

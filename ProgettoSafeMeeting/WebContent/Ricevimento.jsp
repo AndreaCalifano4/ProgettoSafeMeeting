@@ -147,7 +147,7 @@
 				        		<div id="seleziona-orario-dalle">    	
 					            	<label>Seleziona Orario</label>
 						            	<select class="form-control"  name="dalle" id="ora-dalle"  >
-						            		<option>Dalle</option>
+						            		<option value="dalle">Dalle</option>
 							            		<option value="1">9:00</option>
 							            		<option value="2">9:30</option>
 							          			<option value="3">10:00</option>
@@ -171,7 +171,7 @@
 						       	</div>
 					      		<div id="seleziona-orario-alle">
 						      		<select class="form-control" name="ora-alle" id="ora-alle">
-						      			<option>Alle</option>
+						      			<option value="alle">Alle</option>
 					      					<option value="1">9:00</option>
 						            		<option value="2">9:30</option>
 						          			<option value="3">10:00</option>
@@ -195,8 +195,8 @@
 					      	</div>
 	
 					  			<div id="btn-salva-annulla">
-									<button onclick="validationInput();" class="btn btn-default">Salva</button>										
-		            				<button class="btn btn-default">Annulla</button>			            			
+									<button onclick="validationInput(); validateOra();"  class="btn btn-default">Salva</button>										
+		            				<button   class="btn btn-default">Annulla</button>			            			
 		            			</div>
 		    	</div>
 	       	</div>      
