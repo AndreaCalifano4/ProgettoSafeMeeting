@@ -114,8 +114,8 @@
   							<th><a href=""><img id="foto-docente" src="bootstrap/images/Abate.jpg"></a></th>
     						<th>Scemo</th>    						
     						<th>Scemo</th> 
-    						<th><button type="button" class="btn btn-default btn-lg">
-  								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+    						<th><button id="prefers" type="button" class="btn btn-default btn-lg" onclick="addPreferiti();">
+  								<img id ="preferiti" src="bootstrap/images/!preferiti.png" >
   								</button>
 							</th>
   						</tr>

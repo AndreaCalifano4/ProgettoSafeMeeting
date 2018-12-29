@@ -127,8 +127,20 @@
 	left:50%;
 	bottom: 60px;
 }
-
-#input-seleziona-durata{
+/*campi input durata tipologia*/
+#tesi{
+	width: 180px;
+	margin-left: 5px;
+}
+#info{
+	width: 180px;
+	margin-left: 5px;
+}
+#probl{
+	width: 180px;
+	margin-left: 5px;
+}
+#altro{
 	width: 180px;
 	margin-left: 5px;
 }
@@ -248,4 +260,32 @@
 /*calendario*/
 #calendario{
 	width: 250px;
+}
+/*effettua prenotazione responsive*/
+@media(max-width: 894px){
+	#calendario{
+		width: 155px;
+	}
+	#tipologia{
+		width: 110px;
+	}
+
+}
+@media(max-width: 439px){
+	#corso{
+		width: 95px;
+	}
+}
+/*preferiti*/
+#preferiti{
+	width: 20px;
+	height: auto;
+}
+#prefers{
+	border-bottom : 1px solid #FFFFFF;
+	border-right : 1px solid #FFFFFF;
+	border-top : 1px solid #FFFFFF;
+	border-left : 1px solid #FFFFFF;
+	background-color : #D8D8D8;
+	background-color: transparent; 
 }

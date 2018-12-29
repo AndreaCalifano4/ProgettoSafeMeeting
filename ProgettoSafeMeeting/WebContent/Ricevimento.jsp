@@ -115,7 +115,7 @@
 						      				<p>Tesi</p>	
 						      			</td>	
 						      			<td>
-						      				<input id="input-seleziona-durata" class="form-control" placeholder="inserisci durata in minuti" type="text">	
+						      				<input id="tesi" name="tesi" class="form-control" placeholder="inserisci durata in minuti" type="text">	
 						      			</td>
 						      		</tr>
 						      		<tr>
@@ -123,7 +123,7 @@
 							            	<p>Informazioni</p>
 							            </td>
 						      			<td>
-						      				<input id="input-seleziona-durata" class="form-control" placeholder="inserisci durata in minuti" type="text">	
+						      				<input id="info" name="informazioni" class="form-control" placeholder="inserisci durata in minuti" type="text">	
 						      			</td>							            				 
 						      		</tr>							           				 
 									<tr>
@@ -131,14 +131,14 @@
 											<p>Problematiche corso</p>
 										</td>
 						      			<td>
-						      				<input id="input-seleziona-durata" class="form-control" placeholder="inserisci durata in minuti" type="text">		
+						      				<input id="probl" name="probCorso" class="form-control" placeholder="inserisci durata in minuti" type="text">		
 						      			</td>										
 							       	</tr>
 							       	<tr>
 							       		<td>
 											<p>Altro</p>	
 						      			<td>
-						      				<input id="input-seleziona-durata" class="form-control" placeholder="inserisci durata in minuti" type="text">								      																								       			
+						      				<input id="altro" name="altro"  class="form-control" placeholder="inserisci durata in minuti" type="text">								      																								       			
 							       		</td>
 							       	</tr>
 						        </table>
@@ -195,7 +195,7 @@
 					      	</div>
 	
 					  			<div id="btn-salva-annulla">
-									<button onclick="validateOrario();" class="btn btn-default">Salva</button>										
+									<button onclick="validationInput();" class="btn btn-default">Salva</button>										
 		            				<button class="btn btn-default">Annulla</button>			            			
 		            			</div>
 		    	</div>

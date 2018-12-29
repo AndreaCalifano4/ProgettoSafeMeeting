@@ -213,10 +213,8 @@ function getAnno(){
 	var data = new Date();
 	var a = data.getYear();
 	var anno = a + 1900; 
-	for(var i=0; i<2; i++){
-		increment = anno + i;
-		document.getElementById("anno").innerHTML = '<option> Anno </option>' + '<option>'+ anno + '</option>' + '<option>'+ increment + '</option>'+ '<option value="2020">2020</option>';
-	}
+	document.getElementById("anno").innerHTML = '<option> Anno </option>' + '<option>'+ anno + '</option>' + '<option>'+ (anno + 1) + '</option>'+ '<option>'+ (anno+2) +'</option>';
+	
 }
 
 function validateData(){
@@ -295,8 +293,6 @@ function isLeap(opzioneAnno){
 		return result;
 	}
 
-
-
 function controllaGiorno(opzioneGiorno, opzioneMese, opzioneAnno){
 	
 	var bisestile = isLeap(opzioneAnno);
@@ -330,28 +326,26 @@ function validateOra(){
 	document.getElementById("err").innerHTML = opzioneDalle;
 	document.getElementById("err1").innerHTML = opzioneAlle;
 	var sceltaOra = validationOra(opzioneDalle, opzioneAlle);
-	
+	document.getElementById("err2").innerHTML = Boolean(opzioneDalle > opzioneAlle);
 	if(sceltaOra == false){
 		return false;
 	}
 }
 
-
 function validationOra(opzioneDalle, opzioneAlle){	
 	
-	if(opzioneDalle == opzioneAlle || opzioneDalle > opzioneAlle){
+	if(opzioneDalle >= opzioneAlle){
 		alert("errore da ora");
 		return false;
 	}
-	else {
+	else if (opzioneDalle < opzioneAlle) {
 		alert("ok da ora");
-		return false
+		return true;
 	}
 	
 }
 
-
-// script validazione Ricevimento
+// script validazione Orario di ricevimento
 
 function validateGiorno(){
 	var opzioneGiorno = document.getElementById("giorno").value;
@@ -367,21 +361,101 @@ function validateGiorno(){
 	}
 }
 
-function validateOrario(){
-	var opzioneDalle = document.getElementById("dalle").value;
-	var opzioneAlle = document.getElementById("alle").value;
-	var letters = /^([01]?[0-9]|2[0-3])(:([0-5][0-9]))$/;
+function validationInput(){
+	var opzioneTesi = document.getElementById("tesi").value;
+	var opzioneInfo = document.getElementById("info").value;
+	var opzioneProbl = document.getElementById("probl").value;
+	var opzioneAltro = document.getElementById("altro").value;
 	
-	if(opzioneDalle.match(letters) && opzioneAlle.match(letters)){
-		alert ("ok da orario");
-		return true;
-	}
-	else{
-		alert("formato non valido");
+	var t = validateTesi(opzioneTesi);
+	var i = validateInfo(opzioneInfo);
+	var p = validateProbl(opzioneProbl);
+	var a = validateAltro(opzioneAltro);
+	
+	if(t == false || i == false || p == false || a == false){
 		return false;
 	}
 }
 
+function validateTesi(opzioneTesi){
+	
+	var letters = /^([0-6]{1}[0-9]{1})$/;
+	
+	if(opzioneTesi == ''){
+		document.getElementById("tesi").style.borderColor = "red";
+		return false
+	}
+	
+	else if(opzioneTesi.match(letters) ){
+		alert ("ok da tesi");
+		document.getElementById("tesi").style.borderColor = "#ccc";
+		return true;
+	}
+	else{
+		alert("formato non valido da tesi");
+		return false;
+	}
+}
+
+function validateInfo(opzioneInfo){
+	
+	var letters = /^([0-6]{1}[0-9]{1})$/;
+	
+	if(opzioneInfo == ''){
+		document.getElementById("info").style.borderColor = "red";
+		return false
+	}
+	
+	else if(opzioneInfo.match(letters) ){
+		alert ("ok da info");
+		document.getElementById("info").style.borderColor = "#ccc";
+		return true;
+	}
+	else{
+		alert("formato non valido da info");
+		return false;
+	}
+}
+
+function validateProbl(opzioneProbl){
+	
+	var letters = /^([0-6]{1}[0-9]{1})$/;
+	
+	if(opzioneProbl == ''){
+		document.getElementById("probl").style.borderColor = "red";
+		return false
+	}
+	
+	else if(opzioneProbl.match(letters) ){
+		alert ("ok da probl");
+		document.getElementById("probl").style.borderColor = "#ccc";
+		return true;
+	}
+	else{
+		alert("formato non valido da probl");
+		return false;
+	}
+}
+
+function validateAltro(opzioneAltro){
+		
+	var letters = /^([0-6]{1}[0-9]{1})$/;
+	
+	if(opzioneAltro == ''){
+		document.getElementById("altro").style.borderColor = "red";
+		return false
+	}
+	
+	else if(opzioneAltro.match(letters) ){
+		alert ("ok da altro");
+		document.getElementById("altro").style.borderColor = "#ccc";
+		return true;
+	}
+	else{
+		alert("formato non valido da altro");
+		return false;
+	}
+}
 
 //script validazione effettua prenotazione
 function validateCorso(){
@@ -424,13 +498,27 @@ function validationTipologia(opzioneTipologia){
 	}
 }
 
-function validationData(opzioneData){
+function validationData(){
 	if($('#datepicker').val() == ''){
 		alert('errore da data')
 		document.getElementById("datepicker").style.borderColor = "red";
+		return false;
 	}
 	else{
 		alert('ok da data')
 		document.getElementById("datepicker").style.borderColor = "#ccc";		
+		return true;
+	}
+}
+
+var boolean = false;
+function addPreferiti(){
+	boolean = !boolean
+	
+	if(boolean){
+		document.getElementById("prefers").innerHTML = "<img id ='preferiti' src='bootstrap/images/preferiti.png' >";
+	}
+	if(boolean == false){
+		document.getElementById("prefers").innerHTML = "<img id ='preferiti' src='bootstrap/images/!preferiti.png' >";
 	}
 }
