@@ -95,12 +95,21 @@
         	<div class="col-lg-12">
         	</div>
             <div class="container-fluid">
-		    	
-		    	<div>
+            <form method="POST" action="ServletRicerca">
+            	<div class="form-group input-group">
+		        	<input class="form-control" type="text" name="parametro" />
+		        	<span class="input-group-btn">
+		        		<button class="btn btn-default" type="submit">
+		        			<i class="fa fa-search"></i>
+		        		</button>
+		        	</span>
+		        </div>
+			        </form>
+	        </div>
+		    <br>
 	        	<div class="panel panel-default">
   					<!-- Default panel contents -->
 					<div class="panel-heading">I tuoi preferiti:</div>
-
   					<!-- Table -->
   					<table class="table" id="table-pref">
   						<tr>
