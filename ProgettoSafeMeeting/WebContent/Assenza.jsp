@@ -53,7 +53,8 @@
 	            	<ul class="nav" id="side-menu">
 	                	<li>
 	                	<img id="foto-docente" src="bootstrap/images/Abate.jpg">
-	                	<p>Benvenuto </p> 
+	                	<%DocenteBean db = (DocenteBean) request.getSession().getAttribute("docbean"); %>
+	                	<div align="center"><p style="font-size: 18px"> Benvenuto Professor/ssa <%=db.getCognome() %>! </p></div> 
 	                	<br>
 	                	</li>
 	               		<li>
