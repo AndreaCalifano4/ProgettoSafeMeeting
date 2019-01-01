@@ -8,7 +8,7 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1">
  
-     <title>Visualizza dati</title>
+     <title>Modifica dati</title>
  
      <!-- Bootstrap Core CSS -->
      <link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -51,10 +51,10 @@
  	            <div class="navbar-default sidebar" role="navigation">
 	            	<ul class="nav" id="side-menu">
 	                	<li>
-	                	<img id="foto-docente" src="bootstrap/images/Abate.jpg">	                	
-						<%DocenteBean db = (DocenteBean) request.getSession().getAttribute("docbean"); %>
+	                	<img id="foto-docente" src="bootstrap/images/Abate.jpg">
+	                	<%DocenteBean db = (DocenteBean) request.getSession().getAttribute("docbean"); %>
 	                	<div align="center"><p style="font-size: 18px"> Benvenuto Professor/ssa <%=db.getCognome() %>! </p></div>  
-	                    <br>
+	                	<br>
 	                	</li>
 	               		<li>
  	                    	<a href="#">I tuoi corsi</a> 
@@ -92,7 +92,9 @@
  					<table align="center" >
  					<tr>
  					<td>
- 					<img id="foto-docente" src="bootstrap/images/Abate.jpg"> 					
+ 					<img id="foto-docente" src="bootstrap/images/Abate.jpg">
+ 					<br> <p align="center"><button class="btn btn-default">Modifica foto</button></p>
+ 					
  					</td>
  					<td><font color="white"> ------  </font></td> <%-- per separare un po' le celle, alternativa a cellspacing che non funzionava --%>
  					<td>
@@ -128,27 +130,27 @@
  						<table>
  							<tr>
  								<td>
- 								<h5>Alfonso</h5>
+ 								<input class="form-control" placeholder="Nome" type="text" id="NomeDoc">
  								</td>
  							</tr>
  							<tr>
  								<td>
- 								<h5>Abate</h5>
+ 								<input class="form-control" placeholder="Cognome" type="text" id="CognomeDoc">
  								</td>	
  							</tr>
  							<tr>
  								<td>
- 								<h5>alfonso.abate@docente.unisa.it</h5>
+ 								<input class="form-control" placeholder="E-mail" type="text" id="EmailDoc">
  								</td>	
  							</tr>
  							<tr>
  								<td>
- 								<h5>0512193893</h5>
+ 								<input class="form-control" placeholder="Matricola" type="text" id="MatricolaDoc">
  								</td>	
  							</tr>
  							<tr>
  								<td>
- 								<h5>Edificio 16</h5>
+ 								<input class="form-control" placeholder="Studio" type="text" id="StudioDoc">
  								</td>	
  							</tr>
  						</table>
