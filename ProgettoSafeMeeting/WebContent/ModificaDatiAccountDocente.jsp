@@ -126,7 +126,7 @@
  							</tr>
  							<tr>
  								<td>
- 								<input class="form-control" placeholder="Nuova Password" type="text" id="Nuova Password">
+ 								<input class="form-control" placeholder="Nuova Password" type="text" id="NuovaPasswordDoc">
  								</td>	
  							</tr>
  						</table>
