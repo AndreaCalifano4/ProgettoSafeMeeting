@@ -33,136 +33,182 @@
  <body>
  
      <div id="wrapper">
-     <!-- header -->
-     	<nav class="navbar navbar-default navbar-static-top">
-     		    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
- 			    	<span class="sr-only">toggle navigation</span>
- 			    	<span class="icon-bar"></span>
- 			    	<span class="icon-bar"></span>
- 			    	<span class="icon-bar"></span>
-     			</button>
- 	    	<div class="navbar-brand">
- 	 		   	<a href="index.html"><img id = "logo" src="bootstrap/images/logo.png"></a>	
- 	 		   	<h1 id="sm">SafeMeeting</h1> 		   		 		   	
- 	    	</div>
-        	</nav>	       
-             <!-- navbar --> 
-             <div class="sidebar-nav navbar-collapse" aria-expanded="false" style="height: 1px;">		
- 	            <div class="navbar-default sidebar" role="navigation">
+    <!-- header -->
+    	<nav class="navbar navbar-default navbar-static-top">
+    		    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+			    	<span class="sr-only">toggle navigation</span>
+			    	<span class="icon-bar"></span>
+			    	<span class="icon-bar"></span>
+			    	<span class="icon-bar"></span>
+    			</button>
+	    	<div class="navbar-brand">
+	 		   	<a href="HomeDocente.jsp"><img id = "logo" src="bootstrap/images/logo.png"></a>	
+	 		   	<h1 id="sm">SafeMeeting</h1> 		   		 		   	
+	    	</div>
+       	</nav>	       
+            <!-- navbar --> 
+            
+            <div class="sidebar-nav navbar-collapse" aria-expanded="false" style="height: 1px;">		
+	            <div class="navbar-default sidebar" role="navigation">
 	            	<ul class="nav" id="side-menu">
 	                	<li>
-	                	<img id="foto-docente" src="bootstrap/images/Abate.jpg">	                	
-						<%DocenteBean db = (DocenteBean) request.getSession().getAttribute("docbean"); %>
-	                	<div align="center"><p style="font-size: 18px"> Benvenuto Professor/ssa <%=db.getCognome() %>! </p></div>  
-	                    <br>
+	                	<%
+							HttpSession ssn = request.getSession();
+							DocenteBean db = (DocenteBean) ssn.getAttribute("docbean");
+							if (db == null) {
+
+								response.sendRedirect("Login.jsp");
+
+							}
+							else{
+						%>
+	                	<div align="center">
+	                		<img id="foto-docente" src="${pageContext.request.contextPath}/ImageProxyController?name=<%=db.getImmagine() %>">
+	                	</div>
+	                	<div align="center"><p style="font-size: 18px"> Benvenuto Professor/ssa <%=db.getCognome() %>!<%} %> </p></div>
+	                	<br>
 	                	</li>
 	               		<li>
- 	                    	<a href="#">I tuoi corsi</a> 
- 	                    </li>
- 	                    <li>	
- 	                       	<a href="#">Ricevimenti</a>
- 	                    </li>
- 	                    <li>   	   
- 	                       	<a href="#">Assenza</a>
- 	                    </li>   
- 	                    <li>	
- 	                       	<a href="#">Orario di ricevimento</a>
- 	                    </li>  
- 	            	</ul>	            	
- 	            	<br>
- 	            		<ul class="nav" id="side-menu"> 	
- 		                    <li>
- 		                      	<a href="#">Account</a>
- 		                      	<a href="#">Logout</a>
- 							</li>
- 						</ul>
- 	            </div>			           
- 			</div>		              
- 				<!-- /.sidebar-collapse -->
- 	</div>								
-             <!-- /.navbar-static-side -->
+	               			<a href="#">
+		                      		<form method="POST" action="ServletVisualizzaCorsi" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				I tuoi Corsi
+		                      			</button>
+		                      		</form>
+		               		</a>
+	                    </li>
+	                    <li>	
+	                       	<a href="#">
+		                      		<form method="POST" action="ServletListaPrenotatiDoc" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Lista Prenotazioni
+		                      			</button>
+		                      		</form>
+		               		</a>
+	                    </li>
+	                    <li>   	   
+	                    	<a href="#">
+		                      		<form method="POST" action="Assenza.jsp" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Assenza
+		                      			</button>
+		                      		</form>
+		               		</a>
+	                    </li>   
+	                    <li>	
+	                       	<a href="#">
+		                      		<form method="POST" action="ServletStampaRicevimenti" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Orari di ricevimento
+		                      			</button>
+		                      		</form>
+		               		</a>
+	                    </li>  
+	            	</ul>	            	
+	            	<br>
+	            		<ul class="nav" id="side-menu"> 	
+		                    <li>
+		                      	<a href="#">
+		                      		<form method="POST" action="VisualizzaDatiDocente.jsp" style="background-color:transparent;">
+		                      			<input type="hidden" name="flag1" value="visualizzaDoc">            			
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent;width:100%; height:100%;">
+		                      				Account
+		                      			</button>
+		                      		</form>
+		                      	</a>
+		                     </li>
+		                     <li>
+								<a href="#">
+		                      		<form method="POST" action="ServletLogout" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;" onClick="alert('Logout effettuato con successo!')">
+		                      				Logout
+		                      			</button>
+		                      		</form>
+		                      	</a>
+							</li>
+						</ul>
+	            </div>			           
+			</div>		              
+                <!-- /.sidebar-collapse -->
+	</div>								
+            <!-- /.navbar-static-side -->
             
      	<div id="page-wrapper">
          
-         
+         <br>
          	<div class="col-lg-12">
-         		<h1 class="page-header" align="center">I tuoi dati personali</h1>
+         		<h1 class="page-header" align="center" class="lead">I tuoi dati personali</h1>
          	</div>
  	            <div class="container-fluid">
  					<table align="center" >
  					<tr>
- 					<td>
- 					<img id="foto-docente" src="bootstrap/images/Abate.jpg"> 					
- 					</td>
+ 						<td valign="top">
+ 							<img id="foto-docente" src="bootstrap/images/<%=db.getImmagine()%>"> 					
+ 						</td>
  					<td><font color="white"> ------  </font></td> <%-- per separare un po' le celle, alternativa a cellspacing che non funzionava --%>
- 					<td>
- 						<table>
- 							<tr>
- 								<td>
- 								<h5 align="center">Nome:</h5>
- 								</td>
- 							</tr>
- 							<tr>
- 								<td>
- 								<h5 align="center">Cognome:</h5>
- 								</td>	
- 							</tr>
- 							<tr>
- 								<td>
- 								<h5 align="center">E-mail:</h5>
- 								</td>	
- 							</tr>
- 							<tr>
- 								<td>
- 								<h5 align="center">Matricola:</h5>
- 								</td>	
- 							</tr>
- 							<tr>
- 								<td>
- 								<h5 align="center">Studio:</h5>
- 								</td>	
- 							</tr>
- 						</table>
- 					</td>
- 					<td>
- 						<table>
- 							<tr>
- 								<td>
- 								<h5>Alfonso</h5>
- 								</td>
- 							</tr>
- 							<tr>
- 								<td>
- 								<h5>Abate</h5>
- 								</td>	
- 							</tr>
- 							<tr>
- 								<td>
- 								<h5>alfonso.abate@docente.unisa.it</h5>
- 								</td>	
- 							</tr>
- 							<tr>
- 								<td>
- 								<h5>0512193893</h5>
- 								</td>	
- 							</tr>
- 							<tr>
- 								<td>
- 								<h5>Edificio 16</h5>
- 								</td>	
- 							</tr>
- 						</table>
+ 					<td>	
+ 						<table class="table" id="table-pref">
+                          <tr>
+                              <th>Nome</th>
+                            <th><%=db.getNome()%></th>
+                          </tr>
+                          <tr>
+                              <th>Cognome</th>
+                            <th><%=db.getCognome() %></th> 
+                          </tr>
+                          <tr>
+                              <th>Email</th>
+                            <th><%=db.getEmail() %></th> 
+                          </tr>
+                          <tr>
+                              <th>Studio</th>
+                              <th><%=db.getStudio() %></th>
+                          </tr>
+                          <tr>
+                              <th> </th>
+                              <th> </th>
+                          </tr>
+                     </table>
  					</td>
  					</tr> 					
  					</table>
  					<br>
- 	            	<p align="center"><button class="btn btn-default">Modifica dati</button></p>
+ 	            	<a href="#">
+ 						<form method="POST" action="ServletAccount" style="background-color:transparent;">
+ 							<input type="hidden" name="flag1" value="modificaDoc">
+ 	            			<p align="center"><button type="submit" class="btn btn-default">Modifica dati</button></p>
+		                </form>
+		            </a>
  	            	<br><br><br>
- 	            	<p align="right"><button class="btn btn-default">Elimina Account</button></p>
- 	            	
+ 	            	<a href="#">
+ 						<form method="POST" action="ServletAccount" style="background-color:transparent;">
+ 							<input type="hidden" name="flag1" value="eliminaDoc">
+ 	            			<p align="right"><button type="submit" class="btn btn-default">Elimina Account</button></p>
+ 	            		</form>
+		            </a>
  	            </div>
  	    </div>
  	<!-- /#wrapper -->
+ 
+ 		<% 
+		            	String delete = (String) request.getAttribute("delete");
+		            	if(delete != null)
+		            	{ %>
+		            		<script>
+		            			alert('Account eliminato con successo!');
+		            		</script>
+		            	<%} 
+		            %>
+		            
+		            <% 
+		            	String success = (String) request.getAttribute("success");
+		            	if(success != null)
+		            	{ %>
+		            		<script>
+		            			alert('Modifica effettuata con successo.');
+		            		</script>
+		            	<%} 
+		           	 %>
  
      <!-- jQuery -->
      <script src="bootstrap/vendor/jquery/jquery.min.js"></script>

@@ -42,7 +42,7 @@
 			    	<span class="icon-bar"></span>
     			</button>
 	    	<div class="navbar-brand">
-	 		   	<a href="index.html"><img id = "logo" src="bootstrap/images/logo.png"></a>	
+	 		   	<a href="HomeDocente.jsp"><img id = "logo" src="bootstrap/images/logo.png"></a>	
 	 		   	<h1 id="sm">SafeMeeting</h1> 		   		 		   	
 	    	</div>
        	</nav>	       
@@ -52,37 +52,75 @@
 	            <div class="navbar-default sidebar" role="navigation">
 	            	<ul class="nav" id="side-menu">
 	                	<li>
-	                	<img id="foto-docente" src="bootstrap/images/Abate.jpg">
-	                	<%DocenteBean db = (DocenteBean) request.getSession().getAttribute("docbean"); %>
-	                	<div align="center"><p style="font-size: 18px"> Benvenuto Professor/ssa <%=db.getCognome() %>! </p></div>
+	                	<%
+							HttpSession ssn = request.getSession();
+							DocenteBean db = (DocenteBean) ssn.getAttribute("docbean");
+							if (db == null) {
+
+								response.sendRedirect("Login.jsp");
+
+							}
+							else{
+						%>
+	                	<div align="center">
+	                		<img id="foto-docente" src="${pageContext.request.contextPath}/ImageProxyController?name=<%=db.getImmagine() %>">
+	                	</div>
+	                	<div align="center"><p style="font-size: 18px"> Benvenuto Professor/ssa <%=db.getCognome() %>!<%} %> </p></div>
 	                	<br>
 	                	</li>
 	               		<li>
-	                    	<a href="#">I tuoi corsi</a> 
+	               			<a href="#">
+		                      		<form method="POST" action="ServletVisualizzaCorsi" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				I tuoi Corsi
+		                      			</button>
+		                      		</form>
+		               		</a>
 	                    </li>
 	                    <li>	
-	                       	<a href="#">Ricevimenti</a>
+	                       	<a href="#">
+		                      		<form method="POST" action="ServletListaPrenotatiDoc" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Lista Prenotazioni
+		                      			</button>
+		                      		</form>
+		               		</a>
 	                    </li>
 	                    <li>   	   
-	                       	<a href="#">Assenza</a>
+	                    	<a href="#">
+		                      		<form method="POST" action="Assenza.jsp" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Assenza
+		                      			</button>
+		                      		</form>
+		               		</a>
 	                    </li>   
 	                    <li>	
-	                       	<a href="#">Orario di ricevimento</a>
+	                       	<a href="#">
+		                      		<form method="POST" action="ServletStampaRicevimenti" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Orari di ricevimento
+		                      			</button>
+		                      		</form>
+		               		</a>
 	                    </li>  
 	            	</ul>	            	
 	            	<br>
 	            		<ul class="nav" id="side-menu"> 	
 		                    <li>
 		                      	<a href="#">
-		                      		<form method="POST" action="" style="background-color:transparent;">
-		                      			<button type="submit" style="background-color:transparent;border-color:transparent;">
+		                      		<form method="POST" action="VisualizzaDatiDocente.jsp" style="background-color:transparent;">
+		                      			<input type="hidden" name="flag1" value="visualizzaDoc">            			
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent;width:100%; height:100%;">
 		                      				Account
 		                      			</button>
 		                      		</form>
 		                      	</a>
-		                      	<a href="#">
+		                     </li>
+		                     <li>
+								<a href="#">
 		                      		<form method="POST" action="ServletLogout" style="background-color:transparent;">
-		                      			<button type="submit" style="background-color:transparent;border-color:transparent;" onClick="alert('Logout effettuato con successo!')">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;" onClick="alert('Logout effettuato con successo!')">
 		                      				Logout
 		                      			</button>
 		                      		</form>
@@ -109,6 +147,16 @@
         <!-- /#page-wrapper -->
 
     <!-- /#wrapper -->
+    
+    <%	
+		    		String success = (String) request.getAttribute("success");
+					if(success != null){%>
+						<script>
+						    alert("Assenza indicata con successo!");
+						</script>
+					<%
+					}
+					%>
 
     <!-- jQuery -->
     <script src="bootstrap/vendor/jquery/jquery.min.js"></script>

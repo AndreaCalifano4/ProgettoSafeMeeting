@@ -1,15 +1,15 @@
 @charset "ISO-8859-1";
 
-.navbar-static-top{
-	margin:50px 0px 0px 0px;
+.navbar-static-top {
+	margin: 50px 0px 0px 0px;
 }
 
-.sidebar-nav.navbar-collapse{
+.sidebar-nav.navbar-collapse {
 	padding-right: 0px;
 	padding-left: 0px;
 }
 /*logo*/
-#logo{
+#logo {
 	position: relative;
 	width: 70px;
 	height: auto;
@@ -17,135 +17,139 @@
 	bottom: 50px;
 }
 
-.col-lg-12{
+.col-lg-12 {
 	max-height: 150px;
 }
 
 /* titolo SafeMeeting */
-#sm{
+#sm {
 	position: relative;
 	left: 100px;
 	bottom: 130px;
 }
- }
-.sidebar{
+
+}
+.sidebar {
 	left: 0px;
 }
 /* foto docente */
-#foto-docente{
+#foto-docente {
 	width: 100px;
-	margin:0px 0px 10px 10px;
+	margin: 0px 0px 10px 10px;
 	text-align: center;
 }
 
-#enpmlp{
+#enpmlp {
 	margin-top: 20px;
 	margin-left: 10px;
 }
 
-#logoReg{
+#logoReg {
 	width: 100px;
 }
-.panel-heading{
+
+.panel-heading {
 	text-align: center;
 	margin: 0 auto;
 }
 
-#studio{
+#id_studio {
 	display: none;
 }
-#sfondo{
-	 background: url("images/unisa.jpg") no-repeat center center fixed;
-	 -webkit-background-size: cover;
-	 -moz-background-size: cover;
-	 -o-background-size: cover;
-	 background-size: cover;
+
+#sfondo {
+	background: url("images/unisa.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
-@media (max-width: 768px) {
-	.navbar-top-links{
-	margin-right: 100%;
+@media ( max-width : 768px) {
+	.navbar-top-links {
+		margin-right: 100%;
 	}
-}	
+}
 /*errore registrazione*/
-#errore{
+#errore {
 	color: red;
 }
 /*Assenza*/
-#giorno{
-	width: 110px; 				
-	}	
-#mese{
+#giorno {
 	width: 110px;
-	margin-left: 20px
-	}
-#anno{
+}
+
+#mese {
 	width: 110px;
 	margin-left: 20px
 }
 
-#ora-dalle{
+#anno {
+	width: 110px;
+	margin-left: 20px
+}
+
+#ora-dalle {
 	width: 100px;
 }
 
-#ora-alle{
+#ora-alle {
 	width: 100px;
 	margin-left: 20px
 }
 
 /*assenza responsive*/
-@media(max-width: 400px){
-	#anno{
+@media ( max-width : 400px) {
+	#anno {
 		position: relative;
-   		top: 50px;
-    	right: 261px;
+		top: 50px;
+		right: 261px;
 	}
-
-	#fascia-oraria{
-		margin-top:50px;
+	#fascia-oraria {
+		margin-top: 50px;
 	}
 }
 
-#button{
-	margin-top:20px;
+#button {
+	margin-top: 20px;
 	position: relative;
 	left: 15px;
 }
 
-
-
 /*ricevimento*/
-
-
-#scelta-giorno{
+#scelta-giorno {
 	margin-bottom: 111px;
-} 
-#seleziona-durata{
+}
+
+#seleziona-durata {
 	width: 330px;
 	width: -moz-fit-content;
 	position: relative;
-	left:50%;
+	left: 50%;
 	bottom: 60px;
 }
 /*campi input durata tipologia*/
-#tesi{
-	width: 180px;
-	margin-left: 5px;
-}
-#info{
-	width: 180px;
-	margin-left: 5px;
-}
-#probl{
-	width: 180px;
-	margin-left: 5px;
-}
-#altro{
+#tesi {
 	width: 180px;
 	margin-left: 5px;
 }
 
-#seleziona-orario-alle{
+#info {
+	width: 180px;
+	margin-left: 5px;
+}
+
+#probl {
+	width: 180px;
+	margin-left: 5px;
+}
+
+#altro {
+	width: 180px;
+	margin-left: 5px;
+}
+
+#seleziona-orario-alle {
 	width: 330px;
 	width: -moz-fit-content;
 	position: relative;
@@ -154,138 +158,172 @@
 	margin-left: 20px;
 }
 
-#btn-salva-annulla{
+#btn-salva-annulla {
 	position: relative;
 	left: 70%;
 	width: -moz-max-content;
 	width: 200px;
 }
 /*form aggiungi orario ricevimento responsive*/
-@media(max-width: 880px){
-	#seleziona-durata{
+@media ( max-width : 880px) {
+	#seleziona-durata {
 		position: relative;
 		bottom: 0;
 		left: 0;
 		margin-bottom: 60px;
 		top: 30px;
 	}
-	#btn-salva-annulla{
+	#btn-salva-annulla {
 		left: 0;
 	}
 }
 /*Ricevimento responsive*/
-@media(max-width: 779px){
-	#Seleziona-durata{
+@media ( max-width : 779px) {
+	#Seleziona-durata {
 		position: relative;
 		top: 80px;
 		right: 200px;
 	}
-	#seleziona-orario{
+	#seleziona-orario {
 		margin-top: 100px;
 	}
-	
 }
 /* seleziona orario responsive*/
-@media(max-width: 770px){
-	#seleziona-orario{
+@media ( max-width : 770px) {
+	#seleziona-orario {
 		position: relative;
 		top: 75px;
 	}
 }
 
-
 /*testo orario di ricevimento*/
-#testo{
+#testo {
 	font-size: 21px;
 	margin-top: 200px;
 	text-align: center;
 }
 
-#seleiona-giorno{
+#seleiona-giorno {
 	width: 120px;
 }
-#btn-aggiungi-orario{
+
+#btn-aggiungi-orario {
 	text-align: center;
 }
 
 /*navbar responsive*/
-.navbar-toggle{
+.navbar-toggle {
 	left: 15px;
 	top: 9px;
 }
 /*responsive ricevimento alternativo*/
-
 @media screen and (max-height: 560px) and (max-width:1170px) {
-	#panel-body{
+	#panel-body {
 		position: relative;
 		bottom: 150px;
 	}
 }
 
 /*CSS studente*/
-#foto-studente{
+#foto-studente {
 	width: 100px;
-	margin:0px 0px 10px 10px;
+	margin: 0px 0px 10px 10px;
 	text-align: center;
 }
 /*LOGIN*/
-#btnRegistrazione{
+#btnRegistrazione {
 	background-color: #337ab7;
-	border-color: #337ab7;	
+	border-color: #337ab7;
 }
 
-#btnRegistrazione:hover{
+#btnRegistrazione:hover {
 	background-color: #255883;
 	border-color: #255883;
 }
 
-
 /*Css tabella dei risultati*/
-#table-pref{
-    text-valign: center;
+#table-pref {
+	text-valign: center;
 }
 
-#foto-docente-dettagli-prenotazione{
+#foto-docente-dettagli-prenotazione {
 	width: 100px;
-	margin:0px 30px 10px 10px;
+	margin: 0px 30px 10px 10px;
 	text-align: center;
 }
 
-#calendar-24{
+#calendar-24 {
 	width: 100px;
-	margin:0px 0px 10px 10px;
+	margin: 0px 0px 10px 10px;
 	text-align: center;
 }
 
 /*calendario*/
-#calendario{
+#calendario {
 	width: 250px;
 }
 /*effettua prenotazione responsive*/
-@media(max-width: 894px){
-	#calendario{
+@media ( max-width : 894px) {
+	#calendario {
 		width: 155px;
 	}
-	#tipologia{
+	#tipologia {
 		width: 110px;
 	}
-
 }
-@media(max-width: 439px){
-	#corso{
+
+@media ( max-width : 439px) {
+	#corso {
 		width: 95px;
 	}
 }
 /*preferiti*/
-#preferiti{
+.preferiti {
 	width: 20px;
 	height: auto;
 }
-#prefers{
-	border-bottom : 1px solid #FFFFFF;
-	border-right : 1px solid #FFFFFF;
-	border-top : 1px solid #FFFFFF;
-	border-left : 1px solid #FFFFFF;
-	background-color : #D8D8D8;
-	background-color: transparent; 
+/*visualizza prenotazioni*/
+#prenotazioni{
+	width: 30%;
+	overflow: auto;
+}
+#pci{
+	height: 500px;
+	border-top: 1px solid;
+	border-color: #ddd;
+}
+#singola{
+	width: 70%;
+	position: relative;
+	bottom: 500px;
+	left: 31%;
+}
+#btn-elimina-pren{
+	position: relative;
+	left: 75%;
+	width: -moz-max-content;
+	width: 155px;
+}
+@media (max-width:1175px){
+	#btn-elimina-pren{
+		position: relative;
+		left: 0%;
+	}
+}
+@media (max-width:475px){
+	#singola{
+		left:37%
+	}
+	#pren{
+		position: relative;
+		right: 25px;
+	}
+	#prenotazioni{
+		width: 35%;
+	}
+}
+/*errore modifiche account*/
+#erroreModifiche{
+	text-align: center;
+	color: red;
 }

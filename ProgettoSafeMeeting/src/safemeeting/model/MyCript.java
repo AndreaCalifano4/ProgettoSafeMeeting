@@ -1,3 +1,9 @@
+/**
+ * Classe usata per salvare sul database o recuperare dal database informazioni relative ad un corso;
+ * @author Emilio Mainardi
+ * @author Donato Marmora
+ * @author Luca Di Chiara
+ */
 package safemeeting.model;
 
 import java.util.Base64;
@@ -22,6 +28,11 @@ public class MyCript {
     private static String decryptedData;
 
 
+     /**
+     * Questo metodo cripta la password;
+     * @param message (la password)
+     * @return encryptedData (password criptata)
+     */
     public static String encrypt(String message){
         cipher = null;
         try {
@@ -44,6 +55,12 @@ public class MyCript {
 
         return Base64.getEncoder().encodeToString(encryptedData);}
 
+
+    /**
+     * Questo metodo decripta la password;
+     * @param cipherText (la password criptata)
+     * @return decryptedData (password decriptata)
+     */    
     public static String decrypt(String cipherText){
         cipher = null;
         try {

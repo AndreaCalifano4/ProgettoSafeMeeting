@@ -51,10 +51,10 @@
                         <input type="hidden" name="action" value="login_admin">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail istituzionale" required name="email" type="text" value ="" autofocus>
+                                    <input class="form-control" placeholder="E-mail istituzionale" id="mail" name="email" type="email" value ="">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" required name="password" id="password" type="password" value="" required>
+                                    <input class="form-control" placeholder="Password" name="password" id="id-password" type="password" value="">
                                 </div>
 								
 								<% 
@@ -67,7 +67,7 @@
 								%>
                             
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit" value="Send" class="btn btn-lg btn-success btn-block" onclick="validationPassword()">Accedi</button>
+                                <button type="submit" value="Send" class="btn btn-lg btn-success btn-block" onclick="return validateLogin();">Accedi</button>
                             </fieldset>
                         </form> <br>
 						<a href="Registrazione.jsp"><button id="btnRegistrazione" class="btn btn-lg btn-warning btn-block bottone">Registrati</button></a> <br>
@@ -79,7 +79,28 @@
         </div>
     </div>
 
-    <!-- jQuery -->
+	<%
+		String delete = (String) request.getAttribute("delete");
+		if (delete != null) {
+	%>
+	<script>
+		alert('Account eliminato con successo!');
+	</script>
+	<%
+		}
+	%>
+	<%
+		String errore = (String) request.getAttribute("success");
+		if (errore != null) {
+	%>
+	<script>
+		alert("Registrazione effettuata con successo!");
+	</script>
+	<%
+		}
+	%>
+
+	<!-- jQuery -->
     <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -91,21 +112,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="bootstrap/dist/js/sb-admin-2.js"></script>
     
-    <script>
-    function validationPassword(){
-    			
-    	var password = document.getElementById("password").value;
-    	
-    	if(password == ''){
-    		document.getElementById("password").style.borderColor = "red";
-    		return false;
-    	}
-    	else{
-    		document.getElementById("password").style.borderColor = "#ccc";
-    		return true;
-    	}
-    }
-    </script>
+	<script src="bootstrap/Script.js"></script>
 </body>
 
 </html>

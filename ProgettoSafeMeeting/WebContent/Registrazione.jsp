@@ -50,31 +50,31 @@
                                 </label>
                               </div>  
                               <div class="form-group" id="nome-div">
-                                <input class="form-control" placeholder="Nome" name="nome" id="nome" type="text" autofocus required>
+                                <input class="form-control" placeholder="Nome" name="nome" id="id_nome" type="text" autofocus required>
                               </div>
                               
                               <div class="form-group">
-                                <input class="form-control" placeholder="Cognome" name="cognome" id="cognome" type="text">
+                                <input class="form-control" placeholder="Cognome" name="cognome" id="id_cognome" type="text">
                               </div>
                               <div class="form-group">
-                                <input class="form-control" placeholder="Matricola" name="matricola" id="matricola" type="text">
+                                <input class="form-control" placeholder="Matricola" name="matricola" id="id_matricola" type="text">
                               </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail istituzionale" name="email" id="email" type="email">
+                                    <input class="form-control" placeholder="E-mail istituzionale" name="email" id="id_email" type="email">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="studio" placeholder="Studio" name="studio" id="studio" type="text" >
+                                    <input class="form-control"  placeholder="Studio" name="studio" id="id_studio" type="text" >
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" id="password" type="password" value="">
+                                    <input class="form-control" placeholder="Password" name="password" id="id_password" type="password" value="">
                                 </div>
                                 <div class="form-group">
-                                  <input class="form-control" placeholder="Ripeti Password" name="ripPassword" id="ripPassword" type="password" value="">  
+                                  <input class="form-control" placeholder="Ripeti Password" name="ripPassword" id="id_ripPassword" type="password" value="">  
                                 </div>
                                 
                                 <!-- Change this to a button or input when using this as a form -->
 
-								<button type="submit" class="btn btn-lg btn-success btn-block" onClick="if(validate()==false){return false;}">Registrati</button>
+								<button type="submit" class="btn btn-lg btn-success btn-block" onClick="if(validateRegistrazione()==false){return false;}">Registrati</button>
        
                                 <div id="enpmlp">
                                   <p class="fa fa-arrow-circle-o-left"> </p>
@@ -88,6 +88,7 @@
         </div>
     </div>
 
+  
   
     <!-- jQuery -->
     <script src="bootstrap/vendor/jquery/jquery.min.js"></script>

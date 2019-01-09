@@ -42,7 +42,7 @@
 			    	<span class="icon-bar"></span>
     			</button>
 	    	<div class="navbar-brand">
-	 		   	<a href="index.html"><img id = "logo" src="bootstrap/images/logo.png"></a>	
+	 		   	<a href="HomeDocente.jsp"><img id = "logo" src="bootstrap/images/logo.png"></a>	
 	 		   	<h1 id="sm">SafeMeeting</h1> 		   		 		   	
 	    	</div>
        	</nav>	       
@@ -52,29 +52,79 @@
 	            <div class="navbar-default sidebar" role="navigation">
 	            	<ul class="nav" id="side-menu">
 	                	<li>
-	                	<img id="foto-docente" src="bootstrap/images/Abate.jpg">
-	                	<%DocenteBean db = (DocenteBean) request.getSession().getAttribute("docbean"); %>
-	                	<div align="center"><p style="font-size: 18px"> Benvenuto Professor/ssa <%=db.getCognome() %>! </p></div> 
+	                	<%
+							HttpSession ssn = request.getSession();
+							DocenteBean db = (DocenteBean) ssn.getAttribute("docbean");
+							if (db == null) {
+
+								response.sendRedirect("Login.jsp");
+
+							}
+							else{
+						%>
+	                	<div align="center">
+	                		<img id="foto-docente" src="${pageContext.request.contextPath}/ImageProxyController?name=<%=db.getImmagine() %>">
+	                	</div>
+	                	<div align="center"><p style="font-size: 18px"> Benvenuto Professor/ssa <%=db.getCognome() %>!<%} %> </p></div>
 	                	<br>
 	                	</li>
 	               		<li>
-	                    	<a href="#">I tuoi corsi</a> 
+	               			<a href="#">
+		                      		<form method="POST" action="ServletVisualizzaCorsi" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				I tuoi Corsi
+		                      			</button>
+		                      		</form>
+		               		</a>
 	                    </li>
 	                    <li>	
-	                       	<a href="#">Ricevimenti</a>
+	                       	<a href="#">
+		                      		<form method="POST" action="ServletListaPrenotatiDoc" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Lista Prenotazioni
+		                      			</button>
+		                      		</form>
+		               		</a>
 	                    </li>
 	                    <li>   	   
-	                       	<a href="#">Assenza</a>
+	                    	<a href="#">
+		                      		<form method="POST" action="Assenza.jsp" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Assenza
+		                      			</button>
+		                      		</form>
+		               		</a>
 	                    </li>   
 	                    <li>	
-	                       	<a href="#">Orario di ricevimento</a>
+	                       	<a href="#">
+		                      		<form method="POST" action="ServletStampaRicevimenti" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Orari di ricevimento
+		                      			</button>
+		                      		</form>
+		               		</a>
 	                    </li>  
 	            	</ul>	            	
 	            	<br>
 	            		<ul class="nav" id="side-menu"> 	
 		                    <li>
-		                      	<a href="#">Account</a>
-		                      	<a href="#">Logout</a>
+		                      	<a href="#">
+		                      		<form method="POST" action="VisualizzaDatiDocente.jsp" style="background-color:transparent;">
+		                      			<input type="hidden" name="flag1" value="visualizzaDoc">            			
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent;width:100%; height:100%;">
+		                      				Account
+		                      			</button>
+		                      		</form>
+		                      	</a>
+		                     </li>
+		                     <li>
+								<a href="#">
+		                      		<form method="POST" action="ServletLogout" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;" onClick="alert('Logout effettuato con successo!')">
+		                      				Logout
+		                      			</button>
+		                      		</form>
+		                      	</a>
 							</li>
 						</ul>
 	            </div>			           
@@ -91,13 +141,13 @@
 	            <div class="container-fluid">
 	            	<div class="form-group">
 	            	<br>
-	            		       	            		
-		            		<label >Indicare il giorno dell'assenza</label> 
+	            		<form method="POST" action="ServletAssenza" onsubmit="if(validateAssenza() == false) return false;">
+	            		<div id="giorno-mese-anno">		            		
+		            		<label >Indicare il giorno dell'assenza</label>
 		            			<table>  
 		            				<tr>  
-		            					<td>
-		            					<form name="">      	
-						            		<select class="form-control" id="giorno" name="giorno" >
+		            					<td>      	
+						            		<select onfocus="if(validateData()) == false{return false;}" name="giorno" class="form-control" id="giorno" >
 						            			<option value="giorno">Giorno</option>
 							            		<option>1</option>
 							            		<option>2</option>
@@ -130,99 +180,99 @@
 							            		<option>30</option>
 							            		<option>31</option>
 							            	</select> 
-							            	</form>
 				            			</td>
 				            			<td>				                     	
-						            		<select class="form-control" id="mese">
+						            		<select class="form-control" name="mese" id="mese">
 						            			<option value="mese">Mese</option>
-							            		<option value="1">Gennaio</option>
-							            		<option value="2">Febbraio</option>
-							            		<option value="3">Marzo</option>
-							            		<option value="4">Aprile</option>
-							            		<option value="5">Maggio</option>
-							            		<option value="6">Giugno</option>
-							            		<option value="7">Luglio</option>
-							            		<option value="8">Agosto</option>
-							            		<option value="9">Settembre</option>
-							            		<option value="10">Ottobre</option>
-							            		<option value="11">Novembre</option>
-							            		<option value="12">Dicembre</option>	            		
+							            		<option value="0">Gennaio</option>
+							            		<option value="1">Febbraio</option>
+							            		<option value="2">Marzo</option>
+							            		<option value="3">Aprile</option>
+							            		<option value="4">Maggio</option>
+							            		<option value="5">Giugno</option>
+							            		<option value="6">Luglio</option>
+							            		<option value="7">Agosto</option>
+							            		<option value="8">Settembre</option>
+							            		<option value="9">Ottobre</option>
+							            		<option value="10">Novembre</option>
+							            		<option value="11">Dicembre</option>	            		
 							            	</select>
 				            			</td>
 				            			<td>
-							            	<select class="form-control" id="anno" onfocus="getAnno();">
-							            		<option value="Anno">Anno</option>		            		
-							            	</select>						            	
+							            	<select class="form-control" name="anno" id="anno" onfocus="getAnno();">
+							            		<option>Anno</option>			            		
+							            	</select>
 				            			</td>
 			            			</tr>
 				            	</table>
 				            </div>
 				            	<br>
-				          	<div id="fascia-oraria">  	
-				            	<label>Indicare la fascia Oraria</label>
-				            		<table>
-				            			<tr>
-				            				<td>
-								            	<select class="form-control" id="ora-dalle">
-								            		<option value="dalle">Dalle</option>
-								            		<option value="1">9:00</option>
-								            		<option value="2">9:30</option>
-								          			<option value="3">10:00</option>
-								            		<option value="4">10:30</option>    
-								            		<option value="5">11:00</option>
-								            		<option value="6">11:30</option>
-								            		<option value="7">12:00</option>
-								            		<option value="8">12:30</option>
-								            		<option value="9">13:00</option>
-								            		<option value="10">13:30</option>
-								            		<option value="11">14:00</option>
-								            		<option value="12">14:30</option>
-								            		<option value="13">15:00</option>
-								            		<option value="14">15:30</option>
-								            		<option value="15">16:00</option>
-								            		<option value="16">16:30</option>
-								            		<option value="17">17:00</option>
-								            		<option value="18">17:30</option>
-								            		<option value="19">18:00</option>
-								            	</select>
-						            		</td>
-						            		<td>
-								            	<select class="form-control" id="ora-alle">
-								            		<option value="alle">Alle</option> 		
-								            		<option value="1">9:00</option>
-								            		<option value="2">9:30</option>
-								          			<option value="3">10:00</option>
-								            		<option value="4">10:30</option>    
-								            		<option value="5">11:00</option>
-								            		<option value="6">11:30</option>
-								            		<option value="7">12:00</option>
-								            		<option value="8">12:30</option>
-								            		<option value="9">13:00</option>
-								            		<option value="10">13:30</option>
-								            		<option value="11">14:00</option>
-								            		<option value="12">14:30</option>
-								            		<option value="13">15:00</option>
-								            		<option value="14">15:30</option>
-								            		<option value="15">16:00</option>
-								            		<option value="16">16:30</option>
-								            		<option value="17">17:00</option>
-								            		<option value="18">17:30</option>
-								            		<option value="19">18:00</option>	 
-								            	</select>
-								            </td>
-						            	</tr>
-					            	</table>
-					            </div>				            
+				            	
+			            	<label>Indicare la fascia Oraria</label>
+			            		<table>
+			            			<tr>
+			            				<td>
+							            	<select class="form-control" name="dalle" id="ora-dalle">
+							            		<option value="dalle">Dalle</option>
+							            		<option>9:00:00</option>
+							            		<option>9:30:00</option>
+							          			<option>10:00:00</option>
+							            		<option>10:30:00</option>    
+							            		<option>11:00:00</option>
+							            		<option>11:30:00</option>
+							            		<option>12:00:00</option>
+							            		<option>12:30:00</option>
+							            		<option>13:00:00</option>
+							            		<option>13:30:00</option>
+							            		<option>14:00:00</option>
+							            		<option>14:30:00</option>
+							            		<option>15:00:00</option>
+							            		<option>15:30:00</option>
+							            		<option>16:00:00</option>
+							            		<option>16:30:00</option>
+							            		<option>17:00:00</option>
+							            		<option>17:30:00</option>
+							            		<option>18:00:00</option>
+							            	</select>
+					            		</td>
+					            		<td>
+							            	<select class="form-control" name="alle" id="ora-alle">
+							            		<option value="alle">Alle</option> 		
+							            		<option>9:00:00</option>
+							            		<option>9:30:00</option>
+							          			<option>10:00:00</option>
+							            		<option>10:30:00</option>    
+							            		<option>11:00:00</option>
+							            		<option>11:30:00</option>
+							            		<option>12:00:00</option>
+							            		<option>12:30:00</option>
+							            		<option>13:00:00</option>
+							            		<option>13:30:00</option>
+							            		<option>14:00:00</option>
+							            		<option>14:30:00</option>
+							            		<option>15:00:00</option>
+							            		<option>15:30:00</option>
+							            		<option>16:00:00</option>
+							            		<option>16:30:00</option>
+							            		<option>17:00:00</option>
+							            		<option>17:30:00</option>
+							            		<option>18:00:00</option>	 
+							            	</select>
+							            </td>
+					            	</tr>
+				            	</table>				            
 		            	<br>
-		            	<textarea class="form-control" rows="20" cols="100" placeholder="Inserire qui il messaggio" id="messaggio"></textarea>		  
-	            	</div>
+		            	<textarea class="form-control" rows="20" cols="100" placeholder="Inserire qui il messaggio" id="messaggio" name="messag" ></textarea>
 	            		<div id="button">
-	            			<button class="btn btn-default" onclick="validateData(); validateOra();">Invia Messaggio</button>
-	            			<button class="btn btn-default">Annulla</button>
+	            			<button class="btn btn-default" type="submit">Invia Messaggio</button>
+	            			<button class="btn btn-default" type="refresh">Annulla</button>
 	            		</div>
-					<br>
-				</div>	
-
+	            	</form>
+	            	</div>
+	            		<br>
+				</div>
+				
+		</div>
     <!-- /#wrapper -->
 
     <!-- jQuery -->

@@ -1,3 +1,9 @@
+/**
+ * @author Emilio Mainardi
+ * @author Donato Marmora
+ * @author Luca Di Chiara
+ */
+
 package safemeeting.controller;
 
 import java.io.IOException;
@@ -14,6 +20,10 @@ import safemeeting.model.DocenteDAO;
 import safemeeting.model.MyCript;
 import safemeeting.model.StudenteBean;
 import safemeeting.model.StudenteDAO;
+
+/**
+ * Questa servlet serve per registrare un nuovo account nel database;
+ */
 
 
 @WebServlet("/ServletRegistraAccount")
@@ -131,6 +141,8 @@ public class ServletRegistraAccount extends HttpServlet {
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher("Registrazione.jsp");
 					requestDispatcher.forward(request, response);
 				}
+				
+				request.setAttribute("success","");
 			}
 		}
 		catch(Exception e)

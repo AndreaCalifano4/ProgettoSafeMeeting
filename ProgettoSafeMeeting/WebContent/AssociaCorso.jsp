@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" import="safemeeting.model.*" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" import="safemeeting.model.*"%>
+<%@page import="java.util.ArrayList" import="safemeeting.model.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -42,98 +43,150 @@
 			    	<span class="icon-bar"></span>
     			</button>
 	    	<div class="navbar-brand">
-	 		   	<a href="index.html"><img id = "logo" src="bootstrap/images/logo.png"></a>	
+	 		   	<a href="HomeDocente.jsp"><img id = "logo" src="bootstrap/images/logo.png"></a>	
 	 		   	<h1 id="sm">SafeMeeting</h1> 		   		 		   	
 	    	</div>
        	</nav>	       
             <!-- navbar --> 
+            
             <div class="sidebar-nav navbar-collapse" aria-expanded="false" style="height: 1px;">		
 	            <div class="navbar-default sidebar" role="navigation">
 	            	<ul class="nav" id="side-menu">
 	                	<li>
-	                	<img id="foto-docente" src="bootstrap/images/Abate.jpg">
-	                	<%DocenteBean db = (DocenteBean) request.getSession().getAttribute("docbean"); %>
-	                	<div align="center"><p style="font-size: 18px"> Benvenuto Professor/ssa <%=db.getCognome() %>! </p></div> 
+	                	<%
+							HttpSession ssn = request.getSession();
+							DocenteBean db = (DocenteBean) ssn.getAttribute("docbean");
+							if (db == null) {
+
+								response.sendRedirect("Login.jsp");
+
+							}
+							else{
+						%>
+	                	<div align="center">
+	                		<img id="foto-docente" src="${pageContext.request.contextPath}/ImageProxyController?name=<%=db.getImmagine() %>">
+	                	</div>
+	                	<div align="center"><p style="font-size: 18px"> Benvenuto Professor/ssa <%=db.getCognome() %>!<%} %> </p></div>
 	                	<br>
 	                	</li>
 	               		<li>
-	                    	<a href="#">I tuoi corsi</a> 
+	               			<a href="#">
+		                      		<form method="POST" action="ServletVisualizzaCorsi" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				I tuoi Corsi
+		                      			</button>
+		                      		</form>
+		               		</a>
 	                    </li>
 	                    <li>	
-	                       	<a href="#">Ricevimenti</a>
+	                       	<a href="#">
+		                      		<form method="POST" action="ServletListaPrenotatiDoc" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Lista Prenotazioni
+		                      			</button>
+		                      		</form>
+		               		</a>
 	                    </li>
 	                    <li>   	   
-	                       	<a href="#">Assenza</a>
+	                    	<a href="#">
+		                      		<form method="POST" action="Assenza.jsp" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Assenza
+		                      			</button>
+		                      		</form>
+		               		</a>
 	                    </li>   
 	                    <li>	
-	                       	<a href="#">Orario di ricevimento</a>
+	                       	<a href="#">
+		                      		<form method="POST" action="ServletStampaRicevimenti" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Orari di ricevimento
+		                      			</button>
+		                      		</form>
+		               		</a>
 	                    </li>  
 	            	</ul>	            	
 	            	<br>
 	            		<ul class="nav" id="side-menu"> 	
 		                    <li>
-		                      	<a href="#">Account</a>
-		                      	<a href="#">Logout</a>
+		                      	<a href="#">
+		                      		<form method="POST" action="VisualizzaDatiDocente.jsp" style="background-color:transparent;">
+		                      			<input type="hidden" name="flag1" value="visualizzaDoc">            			
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent;width:100%; height:100%;">
+		                      				Account
+		                      			</button>
+		                      		</form>
+		                      	</a>
+		                     </li>
+		                     <li>
+								<a href="#">
+		                      		<form method="POST" action="ServletLogout" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;" onClick="alert('Logout effettuato con successo!')">
+		                      				Logout
+		                      			</button>
+		                      		</form>
+		                      	</a>
 							</li>
 						</ul>
 	            </div>			           
 			</div>		              
-				<!-- /.sidebar-collapse -->
+                <!-- /.sidebar-collapse -->
 	</div>								
             <!-- /.navbar-static-side -->
-           
-    	<div id="page-wrapper">
-        <br>
-        	<div class="col-lg-12">
-        		<h1 class="page-header">Associa corso</h1>
-        	</div>
-	            <div class="container-fluid">
-					<table>
-						<tr>
-							<td width="300"> Architettura degli elaboratori </td>
-							<td width="300"> 9 CFU </td>
-							<td width="300"> 72 ore </td>
-							<td width="300"> <button class="btn btn-default"> Associa </button></td>
-						</tr>
-						
-						<tr>
-							<td> Analisi Matematica </td>
-							<td> 9 CFU </td>
-							<td> 72 ore</td>
-							<td> <button class="btn btn-default"> Associa </button></td>
-						</tr>
-						
-						<tr>
-							<td> Basi di Dati </td>
-							<td> 9 CFU </td>
-							<td> 72 ore</td>
-							<td> <button class="btn btn-default"> Associa </button></td>
-						</tr>
-				
-						<tr>
-							<td> Calcolo scientifico </td>
-							<td> 6 CFU </td>
-							<td> 48 ore</td>
-							<td> <button class="btn btn-default"> Associa </button></td>
-						</tr>
-						
-						<tr>
-							<td> Fisica </td>
-							<td> 6 CFU </td>
-							<td> 48 ore</td>
-							<td> <button class="btn btn-default"> Associa </button></td>
-						</tr>
-						
-						<tr>
-							<td> Grafica ed interattività </td>
-							<td> 6 CFU </td>
-							<td> 48 ore</td>
-							<td> <button class="btn btn-default"> Associa </button></td>
-						</tr>
-					</table>
-		 	
-	            </div>
-	    </div>				
+
+	<div id="page-wrapper">
+		<br>
+		<div class="col-lg-12">
+			<h1>Associa corso</h1>
+		</div>
+		<div class="panel-body">
+			<table class = "table">
+				<tr>
+					<th>Codice</th>
+					<th>&nbsp;&nbsp;</th>
+					<th>Nome</th>
+					<th>Numero cfu</th>
+					<th>Ore totali</th>
+					<th></th>
+
+				</tr>
+				<% 
+	   ArrayList<CorsoBean> corsi = (ArrayList<CorsoBean>)request.getSession().getAttribute("stampaCorsi");
+	
+	 for(int i=0; i<corsi.size(); i++){
+		 %>
+				<form method="POST" action="ServletAssociaCorso">
+					<tr>
+
+						<td><%= corsi.get(i).getCodice() %></td>
+						<td>&nbsp;&nbsp;</td>
+						<td><%= corsi.get(i).getNome() %></td>
+						<td><%= corsi.get(i).getNum_cfu() %></td>
+						<td><%= corsi.get(i).getOre_totali() %></td>
+						<td class="edit"><button type="submit" class="transp">Associa</button></td>
+						<input type="hidden" name="id-corso"
+							value="<%=corsi.get(i).getCodice() %>">
+						<input type="hidden" name="indice" value="<%=i %>">
+
+					</tr>
+				</form>
+				<%
+	 	}
+	 %>
+			</table>
+		</div>
+
+
+	</div>
+	<% 
+	String associa = (String) request.getAttribute("errore"); 
+	if(associa != null){%>
+	<script>
+		alert("Corso già associato.");
+	</script>
+	<%
+		}	
+	%>
 	<!-- /#wrapper -->
 
     <!-- jQuery -->

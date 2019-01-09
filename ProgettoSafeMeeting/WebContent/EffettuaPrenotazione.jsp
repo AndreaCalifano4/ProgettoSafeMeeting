@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="safemeeting.model.*" import="java.util.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SafeMeeting HomeDocente</title>
+    <title>SafeMeeting Prenotazione</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +50,7 @@
 			    	<span class="icon-bar"></span>
     			</button>
 	    	<div class="navbar-brand">
-	 		   	<a href="index.html"><img id = "logo" src="bootstrap/images/logo.png"></a>	
+	 		   	<a href="HomeStudente.jsp"><img id = "logo" src="bootstrap/images/logo.png"></a>	
 	 		   	<h1 id="sm">SafeMeeting</h1> 		   		 		   	
 	    	</div>
        	</nav>	       
@@ -60,30 +60,55 @@
 	            <div class="navbar-default sidebar" role="navigation">
 	            	<ul class="nav" id="side-menu">
 	                	<li>
-	                	<img id="foto-studente" src="bootstrap/images/User.jpg">
-	                	<div align="center"><p style="font-size: 18px"> Benvenuto </p></div>
+						<%
+							HttpSession ssn = request.getSession();
+							StudenteBean db = (StudenteBean) ssn.getAttribute("studbean");
+							if (db == null) {
+
+								response.sendRedirect("Login.jsp");
+
+							}
+							else{
+						%>
+						<div align="center"><p style="font-size: 25px"> Benvenuto <%=db.getNome() %><%} %>! </p></div>
 	                	<br>
 	                	</li>
-	               		<li>
-	                    	<a href="#">Prenotazioni</a> 
-	                    </li>
+		                    <li>
+		                    	<a href="#">
+		                      		<form method="POST" action="ServletStampaPrenotazioni" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Prenotazioni
+		                      			</button>
+		                      		</form>
+		               			</a>
+		                     </li>
 	                    <li>	
-	                       	<a href="#">Preferiti</a>
+	                       	<a href="#">
+		                      		<form method="POST" action="ServletPreferiti" style="background-color:transparent;">
+		                      		<input type="hidden" name="flag" value="preferiti">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Preferiti
+		                      			</button>
+		                      		</form>
+		                      	</a>
 	                    </li>
 	            	</ul>
 	            	<br><br><br><br><br><br><br>
 	            		<ul class="nav" id="side-menu"> 	
 		                    <li>
 		                      	<a href="#">
-		                      		<form method="POST" action="" style="background-color:transparent;">
-		                      			<button type="submit" style="background-color:transparent;border-color:transparent;">
+		                      		<form method="POST" action="VisualizzaDatiStudente.jsp" style="background-color:transparent;">
+		                      		<input type="hidden" name="flag" value="visualizza">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
 		                      				Account
 		                      			</button>
 		                      		</form>
 		                      	</a>
+		                     </li>
+		                     <li>
 								<a href="#">
 		                      		<form method="POST" action="ServletLogout" style="background-color:transparent;">
-		                      			<button type="submit" style="background-color:transparent;border-color:transparent;" onClick="alert('Logout effettuato con successo!')">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;" onClick="alert('Logout effettuato con successo!')">
 		                      				Logout
 		                      			</button>
 		                      		</form>
@@ -98,79 +123,106 @@
         
         <div id="page-wrapper">
             <div class="container-fluid">
-	            <div class="row">	            		 
-	            </div>
+	       	<div class="row">	            		 
+	    </div>
+	        
+	        <form method="POST" action="ServletRicerca">
 	        <div class="form-group input-group">
-	        	<input class="form-control" type="text" />
+	        	<input class="form-control" type="text" name="parametro" value="" placeholder="Ricerca qui il tuo docente..." />
 	        	<span class="input-group-btn">
-	        		<button class="btn btn-default" type="button">
+	        		<button class="btn btn-default" type="submit">
 	        			<i class="fa fa-search"></i>
 	        		</button>
 	        	</span>
 	        </div>   
-	       	</div>
-            <!-- /.row -->
+			</form>
+		<!-- /.row -->
             <div class="row"> 
             
             </div>
             <hr>
             <div>
-	        	<img id="foto-docente-dettagli-prenotazione" src="bootstrap/images/Abate.jpg" style="float:left"> <!-- è una cafonata ma non mi funziona nel css -->
+            <% 
+            	DocenteBean sb = (DocenteBean) request.getSession().getAttribute("docente"); 
+            	ArrayList<CorsoBean> cb = (ArrayList<CorsoBean>) request.getSession().getAttribute("corso");
+            	ArrayList<RicevimentoBean> rb = (ArrayList<RicevimentoBean>) request.getSession().getAttribute("ricevimento");
+            	ArrayList<TipologiaBean> tb = (ArrayList<TipologiaBean>) request.getSession().getAttribute("tipologia");
+            %>
+	        	<img id="foto-docente-dettagli-prenotazione" src="${pageContext.request.contextPath}/ImageProxyController?name=<%=sb.getImmagine() %>" style="float:left">
 	        </div>
 	        &nbsp; &nbsp; &nbsp; &nbsp;
 	        <div>
-	        	<p>	
-	        	Nome Cognome<br>
-	        	Corso
+	        	<p>
+	        		
+	        	<%=db.getNome() %> <%=db.getCognome() %><br>
+	        	<% for(int i = 0; i<cb.size(); i++){ %><%=cb.get(i).getNome() %><br><%} %>
 	        	</p>
 	       	</div>
 	       	<br><br>
 	       	<div>
 	       	<p>
-	       	<h1 class="lead">Orario di ricevimento:</h1>
+	       	<h1 class="lead">Orari di ricevimento:</h1>
 	       		<table class="table" id="table-pref">
+	       				<br>
+	       				<%for(int i = 0; i< rb.size(); i++){ %>
   						<tr>
-  							<th>Lunedì</th>
-    						<th>12-13</th>
-    						<th>Studio 48 Stecca F</th> 
+  							<th><%=rb.get(i).getGiorno() %></th>
+    						<th><%=rb.get(i).getOra_inizio().toString() %></th>
+    						<th><%=rb.get(i).getOra_fine().toString() %></th> 
   						</tr>
+  						<%} %>
   						<tr>
-  							<th>Mercoledì</th>
-    						<th>15-16</th>
-    						<th>Studio 48 Stecca F</th> 
+  							<th>Studio <%=sb.getStudio()%> - Dipartimento di Informatica</th>
+  							<th></th>
+  							<th></th>
   						</tr>
- 					</table>
+ 				</table>
 	       	</p>
 	       	</div>
 	       	<div>
+	       	<form method="POST" action="ServletPrenotazione">
 	       		<table class="table" id="table-pref">
   						<tr>
   							<th id="calendario"><br> 
-							 <input class="form-control" placeholder="Seleziona giorno" type="text" id="datepicker">
+							 <input class="form-control" placeholder="Seleziona giorno" type="text" name="giorno" id="datepicker">
 
 							</th>
-    						<th><br><select class="form-control" id="corso">
+    						<th><br>
+    						<select class="form-control" id="corso" name="corso">
 								<option value="corso">Corso</option>
-								<option value="1">Corso1</option>
-								<option value="2">Corso2</option>
+								<% for(int i = 0; i<cb.size();i++){ %>
+								<option value="<%=cb.get(i).getNome()%>"><%=cb.get(i).getNome()%></option>
+								<%} %>
 							</select></th>
-							<th><br><select class="form-control" id="tipologia">
+							<th><br>
+							<select class="form-control" id="tipologia" name="tipologia">
 								<option value="tipologia">Tipologia</option>
-								<option value="1">Tesi</option>
-								<option value="2">Informazioni</option>
-								<option value="3">Problematiche corso</option>
-								<option value="4">Altro</option>
-							</select></th>
+								<% for(int i=0; i<tb.size();i++){ %>
+								<option value="<%=tb.get(i).getTipo()%>"><%=tb.get(i).getTipo()%></option>
+								<%} %>
+							</select>
+							</th>
     						<th><br></th> 
   						</tr>
   				</table>
+  				
   				<br><br>
-	       		<button onclick="validateCorso();" class="btn btn-primary btn-lg" type="button">Completa</button>
+	       		<button type="submit" class="btn btn-primary btn-lg" onclick="return validatePrenotazione();" >Completa</button>
+	       		</form>
+	       		<%
+	       		String errore =(String) request.getAttribute("errore");
+	       		if(errore != null){ %>
+	       		<script>
+	       			alert("Impossibile prenotarsi nella data scelta.");
+	       		</script>
+	       		<%} %>
+	       		
 	       	</div>
         </div>
         <!-- /#page-wrapper -->
 
     <!-- /#wrapper -->
+
 
     <!-- jQuery -->
     <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
@@ -189,14 +241,19 @@
     <!-- Custom Theme JavaScript -->
     <script src="bootstrap/dist/js/sb-admin-2.js"></script>
     
+    <!-- Script SafeMeeting -->
+    <script src="bootstrap/Script.js"></script>
+    
     <!-- Script Calendario  -->
   	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="bootstrap/Jquery.js"></script>
-		
+	<script src="bootstrap/Jquery.js"></script> 
+	
+	
     <!-- Script SafeMeeting -->
     <script src="bootstrap/Script.js"></script>
-
+    
+    <script src="bootstrap/Jquery.js"></script>
+ 
 </body>
-
 </html>

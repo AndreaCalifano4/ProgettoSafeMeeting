@@ -1,3 +1,9 @@
+/**
+ * @author Emilio Mainardi
+ * @author Donato Marmora
+ * @author Luca Di Chiara
+ */
+
 package safemeeting.controller;
 
 import java.io.IOException;
@@ -8,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /**
- * Servlet implementation class ServletLogin
+ * Questa servlet serve per effettuare il logout;
  */
 @WebServlet("/ServletLogout")
 public class ServletLogout extends HttpServlet {

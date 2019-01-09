@@ -1,3 +1,9 @@
+/**
+ * @author Emilio Mainardi
+ * @author Donato Marmora
+ * @author Luca Di Chiara
+ */
+
 package safemeeting.controller;
 
 import java.io.IOException;
@@ -12,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import safemeeting.model .*;
 /**
- * Servlet implementation class ServletLogin
+ * Questa servlet serve per effettuare la ricerca di un professore;
  */
 @WebServlet("/ServletRicerca")
 public class ServletRicerca extends HttpServlet {
@@ -38,7 +44,7 @@ public class ServletRicerca extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("dbarr", dbarr);
+		request.getSession().setAttribute("dbarr", dbarr);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("Ricerca.jsp");
 		requestDispatcher.forward(request, response);
 	}

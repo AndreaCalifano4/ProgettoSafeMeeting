@@ -1,6 +1,13 @@
+/**
+ * @author Emilio Mainardi
+ * @author Donato Marmora
+ * @author Luca Di Chiara
+ */
+
 package safemeeting.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +19,7 @@ import javax.servlet.http.HttpSession;
 
 import safemeeting.model .*;
 /**
- * Servlet implementation class ServletLogin
+ * Questa servlet serve per effettuare il login;
  */
 @WebServlet("/ServletLogin")
 public class ServletLogin extends HttpServlet {
@@ -36,14 +43,19 @@ public class ServletLogin extends HttpServlet {
 			if(email.contains("@studenti.unisa.it")) { //LOGIN STUDENTE
 				StudenteDAO sd = new StudenteDAO();
 				StudenteBean sb = sd.getLogin(email,password);
+				ArrayList<MessaggioBean> arrmb = sd.getMessaggio(email);
+				ArrayList<DocenteBean> arrdb = sd.getDocMessaggio(email);
 				
 				if(sb != null) {
 					ssn.setAttribute("studbean",sb);
+					ssn.setAttribute("messaggio", arrmb);
+					ssn.setAttribute("messaggiodoc", arrdb);
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomeStudente.jsp");
+					request.setAttribute("errorLogin", null);
 					requestDispatcher.forward(request, response);
 				}
 				else {
-					ssn.setAttribute("errorLogin", true);
+					request.setAttribute("errorLogin", "");
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher("Login.jsp");
 					requestDispatcher.forward(request, response);
 				}

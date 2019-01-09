@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="safemeeting.model.*" import="java.util.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SafeMeeting HomeDocente</title>
+    <title>SafeMeeting Prenotazione</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +46,7 @@
 			    	<span class="icon-bar"></span>
     			</button>
 	    	<div class="navbar-brand">
-	 		   	<a href="index.html"><img id = "logo" src="bootstrap/images/logo.png"></a>	
+	 		   	<a href="HomeStudente.jsp"><img id = "logo" src="bootstrap/images/logo.png"></a>	
 	 		   	<h1 id="sm">SafeMeeting</h1> 		   		 		   	
 	    	</div>
        	</nav>	       
@@ -56,30 +56,56 @@
 	            <div class="navbar-default sidebar" role="navigation">
 	            	<ul class="nav" id="side-menu">
 	                	<li>
-	                	<img id="foto-studente" src="bootstrap/images/User.jpg">
-	                	<div align="center"><p style="font-size: 18px"> Benvenuto </p></div>
+						<%
+							HttpSession ssn = request.getSession();
+							StudenteBean sb = (StudenteBean) ssn.getAttribute("studbean");
+							if (sb == null) {
+
+								response.sendRedirect("Login.jsp");
+
+							}
+							else{
+						%>
+						<div align="center"><p style="font-size: 25px"> Benvenuto <%=sb.getNome() %><%} %>! </p></div>
 	                	<br>
 	                	</li>
-	               		<li>
-	                    	<a href="#">Prenotazioni</a> 
-	                    </li>
+	                	</li>
+		                    <li>
+		                    	<a href="#">
+		                      		<form method="POST" action="ServletStampaPrenotazioni" style="background-color:transparent;">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Prenotazioni
+		                      			</button>
+		                      		</form>
+		               			</a>
+		                     </li>
 	                    <li>	
-	                       	<a href="#">Preferiti</a>
+	                       	<a href="#">
+		                      		<form method="POST" action="ServletPreferiti" style="background-color:transparent;">
+		                      		<input type="hidden" name="flag" value="preferiti">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
+		                      				Preferiti
+		                      			</button>
+		                      		</form>
+		                      	</a>
 	                    </li>
 	            	</ul>
 	            	<br><br><br><br><br><br><br>
 	            		<ul class="nav" id="side-menu"> 	
 		                    <li>
 		                      	<a href="#">
-		                      		<form method="POST" action="" style="background-color:transparent;">
-		                      			<button type="submit" style="background-color:transparent;border-color:transparent;">
+		                      		<form method="POST" action="VisualizzaDatiStudente.jsp" style="background-color:transparent;">
+		                      		<input type="hidden" name="flag" value="visualizza">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;">
 		                      				Account
 		                      			</button>
 		                      		</form>
 		                      	</a>
+		                     </li>
+		                     <li>
 								<a href="#">
 		                      		<form method="POST" action="ServletLogout" style="background-color:transparent;">
-		                      			<button type="submit" style="background-color:transparent;border-color:transparent;" onClick="alert('Logout effettuato con successo!')">
+		                      			<button type="submit" style="background-color:transparent;border-color:transparent; width:100%; height:100%;" onClick="alert('Logout effettuato con successo!')">
 		                      				Logout
 		                      			</button>
 		                      		</form>
@@ -95,15 +121,17 @@
         <div id="page-wrapper">
             <div class="container-fluid">
 	            <div class="row">	            		 
-	            </div>
+	        </div>
+	        <form method="POST" action="ServletRicerca">
 	        <div class="form-group input-group">
-	        	<input class="form-control" type="text" />
+	        	<input class="form-control" type="text" name="parametro" placeholder="Ricerca qui il tuo docente..." />
 	        	<span class="input-group-btn">
-	        		<button class="btn btn-default" type="button">
+	        		<button class="btn btn-default" type="submit">
 	        			<i class="fa fa-search"></i>
 	        		</button>
 	        	</span>
 	        </div>   
+			</form>    
 	       	</div>
             <!-- /.row -->
             <div class="row"> 
@@ -111,35 +139,47 @@
             </div>
             <hr>
             <div>
-	        	<img id="foto-docente-dettagli-prenotazione" src="bootstrap/images/Abate.jpg" style="float:left"> <!-- è una cafonata ma non mi funziona nel css -->
+            <% 
+            	DocenteBean db = (DocenteBean) request.getSession().getAttribute("docente"); 
+            	ArrayList<CorsoBean> cb = (ArrayList<CorsoBean>) request.getSession().getAttribute("corso");
+            	ArrayList<RicevimentoBean> rb = (ArrayList<RicevimentoBean>) request.getSession().getAttribute("ricevimento");
+            %>
+	        	<img id="foto-docente-dettagli-prenotazione" src="${pageContext.request.contextPath}/ImageProxyController?name=<%=db.getImmagine() %>" style="float:left">
 	        </div>
 	        &nbsp; &nbsp; &nbsp; &nbsp;
 	        <div>
-	        	<p>	
-	        	Nome Cognome<br>
-	        	Corso<br>
-	        	Orario di ricevimento
+	        	<p>
+	        		
+	        	<%=db.getNome() %> <%=db.getCognome() %><br>
+	        	<% for(int i = 0; i<cb.size(); i++){ %><%=cb.get(i).getNome() %><br><%} %>
 	        	</p>
 	       	</div>
 	       	<br><br>
 	       	<div>
+	       	<br>
 	       	<p>
+	       	<h1 class="lead">Orari di ricevimento:</h1>
 	       		<table class="table" id="table-pref">
+	       				<br>
+	       				<%for(int i = 0; i< rb.size(); i++){ %>
   						<tr>
-  							<th>Lunedì</th>
-    						<th>12-13</th>
-    						<th>Studio 48 Stecca F</th> 
+  							<th><%=rb.get(i).getGiorno() %></th>
+    						<th><%=rb.get(i).getOra_inizio().toString() %></th>
+    						<th><%=rb.get(i).getOra_fine().toString() %></th> 
   						</tr>
+  						<%} %>
   						<tr>
-  							<th>Mercoledì</th>
-    						<th>15-16</th>
-    						<th>Studio 48 Stecca F</th> 
+  							<th>Studio <%=db.getStudio()%> - Dipartimento di Informatica</th>
+  							<th></th>
+  							<th></th>
   						</tr>
  					</table>
 	       	</p>
 	       	</div>
 	       	<div>
+	       	<a href="EffettuaPrenotazione.jsp">
 	       		<button class="btn btn-primary btn-lg" type="button">Prenotati</button>
+	       	</a>
 	       	</div>
         </div>
         <!-- /#page-wrapper -->
@@ -157,8 +197,8 @@
 
     <!-- Morris Charts JavaScript -->
     <script src="bootstrap/vendor/raphael/raphael.min.js"></script>
-    <script src="bootstrap/vendor/morrisjs/morris.min.js"></script>
-    <script src="bootstrap/data/morris-data.js"></script>
+    <script src="bootstrap/vendor/morrisjs/morris.min.js"></script> 
+    <script src="bootstrap/data/morris-data.js"></script> 
 
     <!-- Custom Theme JavaScript -->
     <script src="bootstrap/dist/js/sb-admin-2.js"></script>

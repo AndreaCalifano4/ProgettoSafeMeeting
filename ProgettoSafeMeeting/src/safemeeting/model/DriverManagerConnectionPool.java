@@ -1,3 +1,9 @@
+/**
+ * Classe usata per salvare sul database o recuperare dal database informazioni relative ad un corso;
+ * @author Emilio Mainardi
+ * @author Donato Marmora
+ * @author Luca Di Chiara
+ */
 package safemeeting.model;
 
 import java.sql.Connection;
@@ -19,6 +25,11 @@ public class DriverManagerConnectionPool  {
 		} 
 	}
 	
+	/**
+	 * Questo metodo crea una connessione con un database esistente;
+	 * @return newConnection (la connessione)
+	 * @throws SQLException (in caso non si stabilisce una connessione viene lanciata un'eccezione) 
+	 */
 	private static synchronized Connection createDBConnection() throws SQLException {
 		Connection newConnection = null;
 		String ip = "localhost";
@@ -33,7 +44,12 @@ public class DriverManagerConnectionPool  {
 		return newConnection;
 	}
 
-
+	/**
+	 * Questo metodo prende la prima connessione disponibile al database;
+	 * @return connection (la connessione)
+	 * @throws SQLException (in caso non esiste una connessione libera viene lanciata un'eccezione)
+	 */
+	
 	public static synchronized Connection getConnection() throws SQLException {
 		Connection connection;
 
