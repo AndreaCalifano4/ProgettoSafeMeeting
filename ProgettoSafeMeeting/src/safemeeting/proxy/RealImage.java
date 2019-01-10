@@ -8,31 +8,31 @@ import java.nio.file.Path;
 
 public class RealImage implements Image {
 
-	private Path iconPath;
-	private File f;
-	
-	public RealImage(Path iconPath){
-		this.iconPath = iconPath;
-		loadFromDisk(iconPath);
-	}
+  private Path iconPath;
+  private File file;
 
-	@Override
-	public InputStream display() {
-		InputStream in = null;
-		try {
-			in = new FileInputStream(f);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		return in;
-	}
+  public RealImage(Path iconPath) {
+    this.iconPath = iconPath;
+    loadFromDisk(iconPath);
+  }
 
-	private File loadFromDisk(Path iconPath){
-		
-		if(iconPath.toFile().exists()){
-			f = iconPath.toFile();
-		}
-		return f;
-		
-	}
+  @Override
+  public InputStream display() {
+    InputStream in = null;
+    try {
+      in = new FileInputStream(file);
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+    return in;
+  }
+
+  private File loadFromDisk(Path iconPath) {
+
+    if (iconPath.toFile().exists()) {
+      file = iconPath.toFile();
+    }
+    return file;
+
+  }
 }

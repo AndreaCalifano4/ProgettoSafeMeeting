@@ -212,22 +212,22 @@
 								<input type="image" class="preferiti"
 									src="bootstrap/images/!preferiti.png">
 								<%
-										}
-									}
-								}
-								else{
-									PreferitiDAO pd = new PreferitiDAO();
-									pbarr = pd.getPreferiti(db.getEmail());
-									request.getSession().setAttribute("pbarr",pbarr);
-									boolean flag = false;
-									if(pbarr != null){
-		  								for(int z = 0; z<pbarr.size();z++){
-		  									if(pbarr.get(z).getMatricolaDoc().equals(dbarr.get(i).getMatricolaDoc())){
-		  										flag = true;
-		  									}
-		  								}
-										if(flag == true){
-											%>
+								  }
+																	}
+																}
+																else{
+																	PreferitiDao pd = new PreferitiDao();
+																	pbarr = pd.getPreferiti(db.getEmail());
+																	request.getSession().setAttribute("pbarr",pbarr);
+																	boolean flag = false;
+																	if(pbarr != null){
+										  								for(int z = 0; z<pbarr.size();z++){
+										  									if(pbarr.get(z).getMatricolaDoc().equals(dbarr.get(i).getMatricolaDoc())){
+										  										flag = true;
+										  									}
+										  								}
+																		if(flag == true){
+								%>
 								<input type="image" class="preferiti"
 									src="bootstrap/images/preferiti.png">
 								<%

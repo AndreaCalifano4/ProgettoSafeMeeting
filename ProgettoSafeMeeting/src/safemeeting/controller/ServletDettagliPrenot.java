@@ -17,44 +17,46 @@ import javax.servlet.http.HttpServletResponse;
 
 import safemeeting.model.DocenteBean;
 import safemeeting.model.PrenotaBean;
-import safemeeting.model.PrenotaDAO;
+import safemeeting.model.PrenotaDao;
 import safemeeting.model.StudenteBean;
 
 /**
- * Questa servlet serve per stampare i dettagli di una singola prenotazione lato studente.
+ * Questa servlet serve per stampare i dettagli di una singola prenotazione lato
+ * studente.
  */
 @WebServlet("/ServletDettagliPrenot")
 public class ServletDettagliPrenot extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletDettagliPrenot() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+  private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  public ServletDettagliPrenot() {
+    super();
+    // TODO Auto-generated constructor stub
+  }
 
-		StudenteBean sb =(StudenteBean) request.getSession().getAttribute("studbean");
-		int numprenot = Integer.parseInt(request.getParameter("numprenot"));
-		String matrdoc = request.getParameter("matrdoc");
-		String indice = request.getParameter("indice");
-		
-		PrenotaDAO pd = new PrenotaDAO();
-		DocenteBean db = pd.getDocentePrenot(sb, numprenot);
-		PrenotaBean pb = pd.getDatiPrenot(sb, numprenot);
-		int numeroprenotati = pd.getNumPrenotati(matrdoc);
-		
-		request.setAttribute("db", db);
-		request.setAttribute("pb", pb);
-		request.setAttribute("numprenotati", numeroprenotati);
-		request.getSession().setAttribute("indice", indice);
-		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("VisualizzaPrenotazione.jsp");
-		requestDispatcher.forward(request, response);
-		
-	}
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+      throws ServletException, IOException {
+    
+    String indice = "";
+    
+    StudenteBean sb = (StudenteBean) request.getSession().getAttribute("studbean");
+    int numprenot = Integer.parseInt(request.getParameter("numprenot"));
+    String matrdoc = request.getParameter("matrdoc");
+    indice = request.getParameter("indice");
+
+    PrenotaDao pd = new PrenotaDao();
+    DocenteBean db = pd.getDocentePrenot(sb, numprenot);
+    PrenotaBean pb = pd.getDatiPrenot(sb, numprenot);
+    int numeroprenotati = pd.getNumPrenotati(matrdoc);
+
+    request.setAttribute("db", db);
+    request.setAttribute("pb", pb);
+    request.setAttribute("numprenotati", numeroprenotati);
+    request.getSession().setAttribute("indice", indice);
+
+    RequestDispatcher requestDispatcher = 
+        request.getRequestDispatcher("VisualizzaPrenotazione.jsp");
+    requestDispatcher.forward(request, response);
+
+  }
 
 }
