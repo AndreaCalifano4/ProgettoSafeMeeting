@@ -25,12 +25,6 @@ deploy:
  
     tags: true 
  
- 
- 
-default_text_charset: 'utf-8' 
- 
- 
- 
 notifications: 
  
   email: 
