@@ -13,7 +13,6 @@ cache:
   - "$HOME/.cache" 
  
  
- 
 deploy: 
  
   provider: script 
