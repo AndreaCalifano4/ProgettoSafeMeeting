@@ -39,7 +39,7 @@ public class StudenteDao {
       ps.executeUpdate();
       return true;
     } catch (SQLException e) {
-      e.printStackTrace();
+      
       return false;
 
     } finally {
@@ -283,7 +283,7 @@ public class StudenteDao {
       arrrb = new ArrayList<RicevimentoBean>();
       conn = DriverManagerConnectionPool.getConnection();
       ps = conn.prepareStatement(
-          "SELECT r.giorno, r.ora_inizio, r.ora_fine FROM docente d, ricevimento r 7"
+          "SELECT r.giorno, r.ora_inizio, r.ora_fine FROM docente d, ricevimento r "
           + "WHERE d.matricolaDoc = r.ricevMatricolaDoc AND d.matricolaDoc = ?");
       ps.setString(1, matricola);
 

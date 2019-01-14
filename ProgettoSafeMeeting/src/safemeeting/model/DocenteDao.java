@@ -44,7 +44,7 @@ public class DocenteDao {
       ps.executeUpdate();
       return true;
     } catch (SQLException e) {
-      e.printStackTrace();
+      
       return false;
 
     } finally {

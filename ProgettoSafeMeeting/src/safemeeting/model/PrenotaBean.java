@@ -32,29 +32,6 @@ public class PrenotaBean implements Subject {
     this.listOfObservers = new ArrayList<Observer>();
   }
   
-  /**
-   * Questo metodo popola l'oggetto prenota con il numero della prenotazione,
-   * il nome del corso, la tipologia, l'orario, il giorno,
-   * l'e-mail dello studente e la matricola del docente.
-   * @param numeroPrenotazione (numero della prenotazione)
-   * @param nomeCorso (nome del corso)
-   * @param tipologia (tipologia)
-   * @param orario (orario)
-   * @param giorno (giorno)
-   * @param prenotaEmailStud (e-mail dello studente)
-   * @param prenotaMatricolaDoc (matriola del docente)
-   */
-  
-  public PrenotaBean(int numeroPrenotazione, String nomeCorso, String tipologia,
-      Time orario, Date giorno, String prenotaEmailStud, String prenotaMatricolaDoc) {
-    this.numeroPrenotazione = numeroPrenotazione;
-    this.nomeCorso = nomeCorso;
-    this.tipologia = tipologia;
-    this.orario = orario;
-    this.giorno = giorno;
-    this.prenotaEmailStud = prenotaEmailStud;
-    this.prenotaMatricolaDoc = prenotaMatricolaDoc;
-  }
 
   /**
    * Questo metodo serve per prendere il numero della prenotazione.

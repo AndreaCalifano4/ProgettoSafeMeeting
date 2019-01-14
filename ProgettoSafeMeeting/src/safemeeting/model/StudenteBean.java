@@ -135,16 +135,6 @@ public class StudenteBean implements Observer {
   }
 
   /**
-   * Questo metodo serve per sampare tutti i dati esistenti di uno studente.
-   */
-  @Override
-  public String toString() {
-    return "StudenteBean [matricolaStud=" + matricolaStud + ","
-        + " nome=" + nome + ", cognome=" + cognome + ", password="
-        + password + ", email=" + email + "]";
-  }
-
-  /**
    * Questo metodo serve per prendere i dati di un oggetto subject.
    * 
    * @return subject (soggetto preso)

@@ -17,20 +17,6 @@ public class InsegnaBean {
   }
 
   /**
-   * Questo metodo popola l'oggetto insegna con la matricola del docente e con il
-   * codice del corso.
-   * 
-   * @param insegnaMatricolaDoc (matricola del docente)
-   * @param insegnaCodiceCorso  (codice del corso)
-   */
-  public InsegnaBean(String insegnaMatricolaDoc, String insegnaCodiceCorso) {
-
-    this.setInsegnaMatricolaDoc(insegnaMatricolaDoc);
-    this.setInsegnaCodiceCorso(insegnaCodiceCorso);
-
-  }
-
-  /**
    * Questo metodo serve per prendere la matricola del docente.
    * 
    * @return insegnaMatricolaDoc (matricola del docente)

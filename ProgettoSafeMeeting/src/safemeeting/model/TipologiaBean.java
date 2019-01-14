@@ -20,16 +20,6 @@ public class TipologiaBean {
   }
 
   /**
-   * Questo metodo popola l'oggetto tipologia con la matricola del docente, la
-   * tipologia e il tempo.
-   */
-  public TipologiaBean(String tipoMatricolaDoc, String tipo, int tempo) {
-    this.tipoMatricolaDoc = tipoMatricolaDoc;
-    this.tipo = tipo;
-    this.tempo = tempo;
-  }
-
-  /**
    * Questo metodo serve per prendere la matricola del docente.
    * 
    * @return tipoMatricolaDoc (matricola del docente)

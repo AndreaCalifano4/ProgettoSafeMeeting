@@ -13,19 +13,6 @@ public class MessaggioBean {
   private String messaggioMatricolaDoc;
   private String messaggio;
 
-  /**
-   * Questo costruttore inizializza l'oggetto messaggio con la matricola del
-   * docente, email studente e il messaggio.
-   * 
-   * @param messaggioMatricolaDoc (matricola del docente)
-   * @param messaggioEmailStud   (email studente)
-   * @param messaggio            (String messaggio)
-   */
-  public MessaggioBean(String messaggioEmailStud, String messaggioMatricolaDoc, String messaggio) {
-    this.messaggioEmailStud = messaggioEmailStud;
-    this.messaggio = messaggio;
-    this.messaggioMatricolaDoc = messaggio;
-  }
 
   /**
    * Questo è un costruttore vuoto che inizializza l'oggetto messaggio.

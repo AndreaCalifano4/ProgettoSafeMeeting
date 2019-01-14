@@ -31,17 +31,6 @@ public class CorsoBean {
   }
 
   /**
-   * Costrutte della classe CorsoBean.
-   */
-  
-  public CorsoBean(String codice, String nome, int numCfu, int oreTotali) {
-    this.codice = codice;
-    this.nome = nome;
-    this.numCfu = numCfu;
-    this.oreTotali = oreTotali;
-  }
-
-  /**
    * Questo metodo serve per prendere il codice del corso.
    * 
    * @return codice (codice del corso)

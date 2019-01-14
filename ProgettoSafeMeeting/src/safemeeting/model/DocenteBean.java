@@ -158,16 +158,4 @@ public class DocenteBean {
   public void setImmagine(String immagine) {
     this.immagine = immagine;
   }
-
-  /**
-   * Questo metodo serve per stampare tutti i dati esistenti di un docente.
-   * 
-   * @return tutti i dati del docente;
-   */
-  @Override
-  public String toString() {
-    return "DocenteBean [matricolaDoc=" + matricolaDoc + ", "
-        + "nome=" + nome + ", cognome=" + cognome + ", password="
-        + password + ", email=" + email + ", studio=" + studio + ", immagine=" + immagine + "]";
-  }
 }

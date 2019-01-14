@@ -20,21 +20,6 @@ public class RicevimentoBean {
 
   }
 
-  /**
-   * Questo metodo popola l'oggetto ricevimento con la matricola del docente
-   * l'ora d'inizio, l'ora di fine e il giorno.
-   * 
-   * @param matricolaDoc (matricola del docente)
-   * @param oraFine (ora d'inizio)
-   * @param oraInizio (ora di fine)
-   * @param giorno (giorno)
-   */
-  public RicevimentoBean(String matricolaDoc, Time oraFine, Time oraInizio, String giorno) {
-    this.matricolaDoc = matricolaDoc;
-    this.oraFine = oraFine;
-    this.oraInizio = oraInizio;
-    this.giorno = giorno;
-  }
 
   /**
    * Questo metodo serve per prendere la matricola di un docente.
