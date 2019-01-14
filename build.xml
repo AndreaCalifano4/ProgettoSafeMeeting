@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- WARNING: Eclipse auto-generated file.
-              Any modifications will be overwritten.
+              Any modifications will be overwritten
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="ProgettoSafeMeeting">
+              as the first entry and export the buildfile again. --><project basedir="ProgettoSafeMeeting" default="build" name="ProgettoSafeMeeting">
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="../../../eclipse/"/>
     <property name="debuglevel" value="source,lines,vars"/>
@@ -71,7 +71,7 @@
     <target name="init">
         <mkdir dir="target/classes"/>
         <copy includeemptydirs="false" todir="target/classes">
-            <fileset dir="src">
+            <fileset dir="src/safemeeting">
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -85,7 +85,7 @@
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="target/classes" includeantruntime="false" source="${source}" target="${target}">
-            <src path="src"/>
+            <src path="src/safemeeting"/>
             <classpath refid="ProgettoSafeMeeting.classpath"/>
         </javac>
     </target>
