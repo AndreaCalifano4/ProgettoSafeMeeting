@@ -2,3 +2,4 @@ safemeeting.controller
 safemeeting.model
 safemeeting.observer
 safemeeting.proxy
+safemeeting.test
