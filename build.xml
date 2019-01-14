@@ -71,7 +71,7 @@
     <target name="init">
         <mkdir dir="target/classes"/>
         <copy includeemptydirs="false" todir="target/classes">
-            <fileset dir="src">
+            <fileset dir="src/safemeeting/">
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
