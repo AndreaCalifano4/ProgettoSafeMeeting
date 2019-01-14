@@ -24,7 +24,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import safemeeting.model.*;
+import safemeeting.model.DocenteBean;
+import safemeeting.model.DocenteDao;
+import safemeeting.model.MyCript;
+import safemeeting.model.StudenteBean;
+import safemeeting.model.StudenteDao;
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
     maxFileSize = 1024 * 1024 * 20, // 10MB

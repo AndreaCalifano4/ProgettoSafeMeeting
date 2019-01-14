@@ -23,8 +23,6 @@ import safemeeting.model.MessaggioBean;
 import safemeeting.model.StudenteBean;
 import safemeeting.model.StudenteDao;
 
-
-
 /**
  * Questa servlet serve per effettuare il login.
  */
@@ -37,13 +35,17 @@ public class ServletLogin extends HttpServlet {
     // TODO Auto-generated constructor stub
   }
 
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+  /**
+   * Metodo doPost di ServletLogin.
+   */
+  
+  public void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
     HttpSession ssn = request.getSession();
 
     synchronized (ssn) { // SINCRONIZZO LA SESSIONE
-    
+
       String email = request.getParameter("email");
       String password = request.getParameter("password");
 
@@ -65,28 +67,27 @@ public class ServletLogin extends HttpServlet {
           RequestDispatcher requestDispatcher = request.getRequestDispatcher("Login.jsp");
           requestDispatcher.forward(request, response);
         }
-      }
+      } else {
+        if (email.contains("@unisa.it")) { // LOGIN DOCENTE
+          DocenteDao dd = new DocenteDao();
 
-      if (email.contains("@unisa.it")) { // LOGIN DOCENTE
-        DocenteDao dd = new DocenteDao();
+          DocenteBean db = dd.getLogin(email, password);
 
-        DocenteBean db = dd.getLogin(email, password);
-
-        if (db != null) {
-          ssn.setAttribute("docbean", db);
-          RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomeDocente.jsp");
-          requestDispatcher.forward(request, response);
+          if (db != null) {
+            ssn.setAttribute("docbean", db);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomeDocente.jsp");
+            requestDispatcher.forward(request, response);
+          } else {
+            request.setAttribute("errorLogin", true);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("Login.jsp");
+            requestDispatcher.forward(request, response);
+          }
         } else {
-          request.setAttribute("errorLogin", true);
+          ssn.setAttribute("errorLogin", true);
           RequestDispatcher requestDispatcher = request.getRequestDispatcher("Login.jsp");
           requestDispatcher.forward(request, response);
         }
-      } else {
-        ssn.setAttribute("errorLogin", true);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("Login.jsp");
-        requestDispatcher.forward(request, response);
       }
-
     }
 
   }

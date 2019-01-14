@@ -33,7 +33,11 @@ public class ServletStampaCorsi extends HttpServlet {
     // TODO Auto-generated constructor stub
   }
 
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+  /**
+   * Metodo doPost di ServletStampaCorsi.
+   */
+  
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
 
     ArrayList<CorsoBean> corsi = null;

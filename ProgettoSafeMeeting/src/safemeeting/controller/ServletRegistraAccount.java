@@ -29,7 +29,11 @@ import safemeeting.model.StudenteDao;
 public class ServletRegistraAccount extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+  /**
+   * Metodo doPost di ServletRegistrazione.
+   */
+  
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
     try {
       String radio = request.getParameter("tipo-utente");

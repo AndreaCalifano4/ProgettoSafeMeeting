@@ -34,7 +34,11 @@ public class ServletStampaRicevimenti extends HttpServlet {
     // TODO Auto-generated constructor stub
   }
 
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+  /**
+   * Metodo doPost di ServletStampaRicevimento.
+   */
+  
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
 
     ArrayList<RicevimentoBean> ric = null;
@@ -42,6 +46,7 @@ public class ServletStampaRicevimenti extends HttpServlet {
     try {
       DocenteBean db = (DocenteBean) request.getSession().getAttribute("docbean");
       RicevimentoDao rd = new RicevimentoDao();
+      
       ric = rd.stampaRicevimenti(db);
     } catch (Exception e) {
       e.printStackTrace();

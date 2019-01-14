@@ -22,7 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 import safemeeting.proxy.ProxyImage;
 
 /**
- * Servlet implementation class ImageProxy Questa servlet è l'implementazione
+ * Servlet implementation class ImageProxy
+ * Questa servlet è l'implementazione
  * per il design patter Proxy, se la foto non viene caricata in tempo verrà
  * caricata una di default, idem se una foto non è presente.
  */

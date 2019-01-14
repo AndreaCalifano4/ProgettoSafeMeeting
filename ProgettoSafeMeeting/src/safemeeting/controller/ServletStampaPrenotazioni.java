@@ -34,7 +34,11 @@ public class ServletStampaPrenotazioni extends HttpServlet {
     // TODO Auto-generated constructor stub
   }
 
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+  /**
+   * Metodo doPost di ServletStampaPrenotazioni.
+   */
+  
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
 
     HttpSession ssn = request.getSession();

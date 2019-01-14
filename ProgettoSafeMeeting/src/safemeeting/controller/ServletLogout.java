@@ -26,7 +26,11 @@ public class ServletLogout extends HttpServlet {
     // TODO Auto-generated constructor stub
   }
 
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+  /**
+   * Metodo doPost di ServletLogout.
+   */
+  
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
 
     request.getSession().invalidate();
