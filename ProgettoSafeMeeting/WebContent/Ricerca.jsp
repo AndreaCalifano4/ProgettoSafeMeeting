@@ -74,9 +74,7 @@
 						%>
 						<div align="center">
 							<p style="font-size: 25px">
-								Benvenuto
-								<%=db.getNome() %>
-								<%} %>!
+								Benvenuto <%=db.getNome() %><%} %>!
 							</p>
 						</div> <br>
 					</li>
@@ -137,7 +135,7 @@
 			<form method="POST" action="ServletRicerca">
 				<div class="form-group input-group">
 					<input class="form-control" type="text" name="parametro"
-						placeholder="Ricerca qui il tuo docente..." /> <span
+						placeholder="Ricerca qui un docente per cognome o per un corso associato..." /> <span
 						class="input-group-btn">
 						<button class="btn btn-default" type="submit">
 							<i class="fa fa-search"></i>

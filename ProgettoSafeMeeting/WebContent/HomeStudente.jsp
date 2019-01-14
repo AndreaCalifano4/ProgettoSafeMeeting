@@ -119,26 +119,27 @@
             <div class="container-fluid">
 	       	<div class="row">	            		 
 	    </div>
-	        
-	        <form method="POST" action="ServletRicerca">
-	        <div class="form-group input-group">
-	        	<input class="form-control" type="text" name="parametro" value="" placeholder="Ricerca qui il tuo docente..." />
-	        	<span class="input-group-btn">
-	        		<button class="btn btn-default" type="submit">
-	        			<i class="fa fa-search"></i>
-	        		</button>
-	        	</span>
-	        </div>   
+
+			<form method="POST" action="ServletRicerca">
+				<div class="form-group input-group">
+					<input class="form-control" type="text" name="parametro"
+						placeholder="Ricerca qui un docente per cognome o per un corso associato..." />
+					<span class="input-group-btn">
+							<button class="btn btn-default" type="submit">
+								<i class="fa fa-search"></i>
+							</button>
+					</span>
+				</div>
 			</form>
-			
-	       	</div>
+
+		</div>
             <!-- /.row -->
             <%
-            	ArrayList<MessaggioBean> arrmb =(ArrayList<MessaggioBean>) ssn.getAttribute("messaggio");
-            	ArrayList<DocenteBean> arrdb =(ArrayList<DocenteBean>) ssn.getAttribute("messaggiodoc");
-            	
-            	if(arrmb != null){
-            		for(int i = 0; i<arrmb.size();i++){
+              ArrayList<MessaggioBean> arrmb = (ArrayList<MessaggioBean>) ssn.getAttribute("messaggio");
+              ArrayList<DocenteBean> arrdb = (ArrayList<DocenteBean>) ssn.getAttribute("messaggiodoc");
+
+              if (arrmb != null) {
+                for (int i = 0; i < arrmb.size(); i++) {
             %>
 		<div class="row">
 			<div class="jumbotron">

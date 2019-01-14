@@ -124,7 +124,8 @@
 	        </div>
 	        <form method="POST" action="ServletRicerca">
 	        <div class="form-group input-group">
-	        	<input class="form-control" type="text" name="parametro" placeholder="Ricerca qui il tuo docente..." />
+	        	<input class="form-control" type="text" name="parametro"
+                        placeholder="Ricerca qui un docente per cognome o per un corso associato..." /> 
 	        	<span class="input-group-btn">
 	        		<button class="btn btn-default" type="submit">
 	        			<i class="fa fa-search"></i>
