@@ -1,11 +1,12 @@
 sudo: false 
  
-language: 
- - java 11
- - java 10
- - java 9
- - java 8
- - java 7
+language: java
+ 
+dist: trusty
+
+jdk:
+ - openjdk1.8.0
+ - oraclejdk1.8.0
  
 services: 
  
