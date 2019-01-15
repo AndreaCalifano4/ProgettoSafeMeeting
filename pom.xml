@@ -6,8 +6,6 @@
   <packaging>war</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
-    mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-      mvn test -B
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
