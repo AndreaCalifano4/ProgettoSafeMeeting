@@ -6,7 +6,6 @@ dist: trusty
 
 jdk:
  - openjdk1.8.0
- - oraclejdk1.8.0
  
 services: 
  
