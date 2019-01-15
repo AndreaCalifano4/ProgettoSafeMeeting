@@ -1,6 +1,11 @@
 sudo: false 
  
-language: java 
+language: 
+ - java 11
+ - java 10
+ - java 9
+ - java 8
+ - java 7
  
 services: 
  
