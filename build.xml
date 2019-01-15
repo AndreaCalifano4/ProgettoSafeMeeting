@@ -65,7 +65,7 @@
         <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0].libraryclasspath"/>
         <pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-5.1.45-bin.jar"/>
         <path refid="JUnit 5.libraryclasspath"/>
-        <pathelement location="../../../Downloads/maven-jar-plugin-3.1.1.jar"/>
+        <pathelement location="maven-jar-plugin-3.1.1.jar"/>
         <path refid="Maven Dependencies.libraryclasspath"/>
     </path>
     <target name="init">
